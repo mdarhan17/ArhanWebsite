@@ -18,6 +18,35 @@ body {
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+/* ==============================
+   HERO THEME COLORS
+================================ */
+
+/* DARK THEME */
+:root {
+  --hero-bg-start: #020617;
+  --hero-bg-mid: #020617;
+  --hero-bg-end: #000000;
+
+  --hero-accent: #0B3C5D;     /* Moroccan Blue */
+  --hero-accent-soft: #1F6AE1;
+
+  --hero-text-primary: #ffffff;
+  --hero-text-secondary: rgba(255,255,255,0.7);
+}
+
+/* LIGHT THEME */
+html.light {
+  --hero-bg-start: #ffffff;
+  --hero-bg-mid: #f5f5f5;
+  --hero-bg-end: #e5e7eb;
+
+  --hero-accent: #f97316;    /* Orange */
+  --hero-accent-soft: #facc15;
+
+  --hero-text-primary: #111827;
+  --hero-text-secondary: #4b5563;
+}
 
 :root {
   --bg-primary: #000000;
