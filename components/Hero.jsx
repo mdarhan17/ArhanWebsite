@@ -36,11 +36,11 @@ export default function Hero() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const isLight = document.documentElement.classList.contains('light');
-
-      ctx.fillStyle = isLight
-        ? 'rgba(249,115,22,0.45)' // ✅ white theme → orange
-        : 'rgba(0,26,249,0.45)';  // 🔒 dark theme → blue (#001AF9)
+      ctx.fillStyle = getComputedStyle(document.documentElement)
+        .getPropertyValue('--hero-accent')
+        .trim()
+        .replace(')', ',0.45)')
+        .replace('#', 'rgba(');
 
       particles.forEach((p) => {
         ctx.globalAlpha = p.opacity;
@@ -68,14 +68,12 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
       style={{
-        background: `
-          linear-gradient(
-            to bottom,
-            var(--hero-bg-start),
-            var(--hero-bg-mid),
-            var(--hero-bg-end)
-          )
-        `,
+        background: `linear-gradient(
+          to bottom,
+          var(--hero-bg-start),
+          var(--hero-bg-mid),
+          var(--hero-bg-end)
+        )`,
       }}
     >
       {/* PARTICLES */}
@@ -115,18 +113,15 @@ export default function Hero() {
                 Hi, I’m
               </h2>
 
-              {/* 🔥 NAME – THEME SAFE */}
+              {/* ✅ NAME – FULLY THEME REACTIVE */}
               <h1
                 className="text-5xl md:text-7xl font-extrabold leading-tight"
                 style={{
-                  background: document.documentElement.classList.contains('light')
-                    ? 'linear-gradient(135deg,#f97316,#facc15)' // white theme
-                    : 'linear-gradient(135deg,#001AF9,#4F6BFF)', // dark theme
+                  background:
+                    'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  textShadow: document.documentElement.classList.contains('light')
-                    ? '0 0 18px rgba(249,115,22,0.45)'
-                    : '0 0 22px rgba(0,26,249,0.55)',
+                  textShadow: '0 0 22px var(--glow-color)',
                 }}
               >
                 Mohammed Arhan
@@ -165,9 +160,7 @@ export default function Hero() {
                 background: 'rgba(0,0,0,0.65)',
                 color: '#fff',
                 borderColor: 'rgba(255,255,255,0.15)',
-                boxShadow: document.documentElement.classList.contains('light')
-                  ? '0 0 28px rgba(249,115,22,0.45)'
-                  : '0 0 32px rgba(0,26,249,0.45)',
+                boxShadow: '0 0 32px var(--glow-color)',
               }}
             >
               <HiDownload className="text-xl" />
@@ -175,7 +168,7 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* RIGHT – IMAGE GLOW */}
+          {/* RIGHT – IMAGE / GLOW */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -188,9 +181,8 @@ export default function Hero() {
                 transition={{ duration: 6, repeat: Infinity }}
                 className="absolute inset-0 rounded-full blur-[110px] opacity-35"
                 style={{
-                  background: document.documentElement.classList.contains('light')
-                    ? 'linear-gradient(135deg,#f97316,#facc15)'
-                    : 'linear-gradient(135deg,#001AF9,#4F6BFF)',
+                  background:
+                    'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
                 }}
               />
             </div>

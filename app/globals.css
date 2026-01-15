@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==============================
+   RESET & BASE
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -18,71 +21,114 @@ body {
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 /* ==============================
-   HERO THEME COLORS
+   HERO + GLOBAL THEME VARIABLES
 ================================ */
 
-/* DARK THEME */
+/* ---------- DARK THEME (DEFAULT) ---------- */
 :root {
+  /* HERO */
   --hero-bg-start: #020617;
   --hero-bg-mid: #020617;
   --hero-bg-end: #000000;
 
-  --hero-accent: #0B3C5D;     /* Moroccan Blue */
-  --hero-accent-soft: #1F6AE1;
+  --hero-accent: #001AF9;          /* 🔒 LOCKED BLUE */
+  --hero-accent-soft: #4F6BFF;
 
   --hero-text-primary: #ffffff;
   --hero-text-secondary: rgba(255,255,255,0.7);
+
+  /* GLOBAL */
+  --bg-primary: #020617;
+  --bg-secondary: #020617;
+  --bg-gradient-start: #020617;
+  --bg-gradient-end: #000000;
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.75);
+
+  --accent-primary: #001AF9;
+  --accent-secondary: #4F6BFF;
+
+  --glow-color: rgba(0, 26, 249, 0.45);
+
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.14);
+
+  --gradient-accent: linear-gradient(135deg, #001AF9, #4F6BFF);
 }
 
-/* LIGHT THEME */
+/* ---------- LIGHT THEME ---------- */
 html.light {
+  /* HERO */
   --hero-bg-start: #ffffff;
-  --hero-bg-mid: #f5f5f5;
+  --hero-bg-mid: #f9fafb;
   --hero-bg-end: #e5e7eb;
 
-  --hero-accent: #f97316;    /* Orange */
+  --hero-accent: #f97316;
   --hero-accent-soft: #facc15;
 
   --hero-text-primary: #111827;
   --hero-text-secondary: #4b5563;
-}
 
-:root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a1e;
-  --bg-gradient-start: #1e3a8a;
-  --bg-gradient-end: #000000;
-  --text-primary: #ffffff;
-  --text-secondary: #e5e7eb;
-  --accent-primary: #06b6d4;
-  --accent-secondary: #3b82f6;
-  --glow-color: rgba(6, 182, 212, 0.5);
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --gradient-accent: linear-gradient(135deg, #06b6d4, #3b82f6);
-}
-
-html.light {
+  /* GLOBAL */
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
   --bg-gradient-start: #ffffff;
   --bg-gradient-end: #e5e7eb;
-  --text-primary: #1f2937;
+
+  --text-primary: #111827;
   --text-secondary: #4b5563;
+
   --accent-primary: #f97316;
-  --accent-secondary: #eab308;
-  --glow-color: rgba(249, 115, 22, 0.4);
-  --card-bg: rgba(0, 0, 0, 0.02);
-  --card-border: rgba(0, 0, 0, 0.08);
-  --gradient-accent: linear-gradient(135deg, #eab308, #f97316);
+  --accent-secondary: #facc15;
+
+  --glow-color: rgba(249, 115, 22, 0.45);
+
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(0, 0, 0, 0.12);
+
+  --gradient-accent: linear-gradient(135deg, #f97316, #facc15);
 }
 
+/* ==============================
+   BODY BACKGROUND
+================================ */
 body {
-  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
   background-attachment: fixed;
   color: var(--text-primary);
 }
+
+/* ==============================
+   GLASS BASE
+================================ */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  isolation: isolate;
+}
+
+/* ==============================
+   GLOW UTILITIES
+================================ */
+.glow-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px var(--glow-color);
+}
+
 
 .glass {
   background: var(--card-bg);
