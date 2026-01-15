@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { HiDownload } from 'react-icons/hi';
 import { useEffect, useRef } from 'react';
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
+
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -128,21 +130,20 @@ export default function Hero() {
               </h1>
             </div>
 
-            <div className="space-y-1">
-              <h3
-                className="text-2xl md:text-3xl font-semibold"
-                style={{ color: 'var(--hero-text-primary)' }}
-              >
-                Full Stack Developer
-              </h3>
-              <h3
-                className="text-2xl md:text-3xl font-semibold"
-                style={{ color: 'var(--hero-text-primary)' }}
-              >
-                Content Creator
-              </h3>
-            </div>
+            <div className="flex items-center gap-3 text-2xl md:text-3xl font-semibold">
+  <span
+  className="mr-2 font-medium"
+  style={{
+    color: document.documentElement.classList.contains('light')
+      ? '#000000'
+      : '#ffffff',
+  }}
+>
+  I am a
+</span>
 
+  <TypeText />
+</div>
             <p
               className="text-lg max-w-xl leading-relaxed"
               style={{ color: 'var(--hero-text-secondary)' }}
@@ -191,5 +192,46 @@ export default function Hero() {
         </div>
       </div>
     </section>
+    
+  );
+}
+function TypeText() {
+  const [text, helper] = useTypewriter({
+    words: [
+      'Full Stack Developer',
+      'Content Creator',
+      'Digital Designer',
+    ],
+    loop: true,
+    typeSpeed: 55,
+    deleteSpeed: 40,
+    delaySpeed: 2000,
+  });
+
+  const isLight = document.documentElement.classList.contains('light');
+
+  const styleMap = {
+    'Full Stack Developer': 'type-fs',
+    'Content Creator': 'type-cc',
+    'Digital Designer': 'type-dd',
+  };
+
+  return (
+    <span
+      className={`
+        typing-text
+        ${!isLight ? styleMap[text] || '' : ''}
+        ${helper.isTypeDone && !isLight ? 'typing-done' : ''}
+      `}
+      style={{
+        color: isLight ? '#111827' : undefined,
+      }}
+    >
+      {text}
+      <Cursor
+        cursorStyle="|"
+        cursorColor={isLight ? '#111827' : '#ffffff'}
+      />
+    </span>
   );
 }
