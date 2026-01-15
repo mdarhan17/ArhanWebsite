@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { HiDownload } from 'react-icons/hi';
 import { useEffect, useRef, useState } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import Image from 'next/image';
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -164,8 +165,8 @@ export default function Hero() {
               className="text-lg max-w-xl leading-relaxed"
               style={{ color: 'var(--hero-text-secondary)' }}
             >
-            MCA Graduate with 5+ years of Experience, Driving Modern 
-            Digital Solutions through Creativity and Growth
+            MCA Graduate with 5+ years of Experience, Driving 
+            Modern Digital Solutions through Creativity and Growth
             </p>
 
             <motion.a
@@ -186,27 +187,62 @@ export default function Hero() {
               Download Resume
             </motion.a>
           </motion.div>
+          {/* RIGHT – CARTOON IMAGE */}
+{/* RIGHT – IMAGE WITH FLOATING AURA */}
+<motion.div
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="relative flex justify-center items-center"
+>
+  <div className="relative w-[420px] h-[420px]">
 
-          {/* RIGHT – GLOW */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex justify-center"
-          >
-            <div className="relative w-[380px] h-[380px]">
-              <motion.div
-                animate={{ scale: [1, 1.06, 1] }}
-                transition={{ duration: 6, repeat: Infinity }}
-                className="absolute inset-0 rounded-full blur-[110px] opacity-35"
-                style={{
-                  background: isLight
-                    ? 'linear-gradient(135deg,#f97316,#facc15)'
-                    : 'linear-gradient(135deg,#001AF9,#4F6BFF)',
-                }}
-              />
-            </div>
-          </motion.div>
+    {/* 🌈 MAIN FLOATING AURA */}
+    <motion.div
+      animate={{ y: [0, -18, 0], scale: [1, 1.08, 1] }}
+      transition={{
+        duration: 7,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      }}
+      className="absolute inset-0 rounded-full blur-[130px] opacity-40"
+      style={{
+        background: isLight
+          ? 'linear-gradient(135deg,#f97316,#facc15)'
+          : 'linear-gradient(135deg,#001AF9,#4F6BFF)',
+      }}
+    />
+
+    {/* ✨ SECOND SOFT AURA (slower) */}
+    <motion.div
+      animate={{ y: [0, 12, 0] }}
+      transition={{
+        duration: 9,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      }}
+      className="absolute inset-6 rounded-full blur-[90px] opacity-30"
+      style={{
+        background: isLight
+          ? 'linear-gradient(135deg,#fb923c,#fde047)'
+          : 'linear-gradient(135deg,#2563eb,#60a5fa)',
+      }}
+    />
+
+    {/* 🧑 CARTOON IMAGE (NO FLOAT) */}
+    <div className="relative z-10 w-full h-full flex items-center justify-center">
+      <Image
+        src={isLight ? '/orange.png' : '/blue.png'}
+        alt="Mohammed Arhan"
+        width={360}
+        height={360}
+        className="object-contain drop-shadow-2xl scale-110"
+        priority
+      />
+    </div>
+
+  </div>
+</motion.div>
 
         </div>
       </div>
