@@ -150,13 +150,12 @@ export default function Hero() {
             </div>
 
             {/* TYPEWRITER */}
-            <div className="flex items-center gap-3 text-2xl md:text-3xl font-semibold">
+            <div className="flex items-center gap-1 text-2xl md:text-3xl font-semibold">
               <span
                 className="mr-2 font-medium"
                 style={{ color: isLight ? '#111827' : '#ffffff' }}
               >
-                I am a
-              </span>
+                I am a</span>
 
               <TypeText isLight={isLight} />
             </div>
@@ -165,8 +164,8 @@ export default function Hero() {
               className="text-lg max-w-xl leading-relaxed"
               style={{ color: 'var(--hero-text-secondary)' }}
             >
-              I build modern websites, scalable web applications and premium
-              digital experiences focused on performance, design and clarity.
+            MCA Graduate with 5+ years of Experience, Driving Modern 
+            Digital Solutions through Creativity and Growth
             </p>
 
             <motion.a
@@ -240,12 +239,12 @@ function TypeText({ isLight }) {
   return (
     <span
       className={`typing-text ${!isLight ? styleMap[text] || '' : ''}`}
-      style={{
-        color: isLight ? '#111827' : undefined,
-      }}
     >
       {text}
-      <Cursor cursorStyle="|" cursorColor={isLight ? '#111827' : '#ffffff'} />
+      <Cursor
+        cursorStyle="|"
+        cursorColor={isLight ? '#111827' : 'rgba(255,255,255,0.75)'}
+      />
     </span>
   );
 }
