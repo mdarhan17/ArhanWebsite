@@ -2,13 +2,35 @@
 
 import { motion } from 'framer-motion';
 import { HiDownload } from 'react-icons/hi';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-
 
 export default function Hero() {
   const canvasRef = useRef(null);
+  const [isLight, setIsLight] = useState(false);
 
+  /* ===============================
+     THEME SYNC (NAVBAR TO HERO)
+  =============================== */
+  useEffect(() => {
+    const updateTheme = () => {
+      setIsLight(document.documentElement.classList.contains('light'));
+    };
+
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  /* ===============================
+     PARTICLE BACKGROUND
+  =============================== */
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -38,11 +60,9 @@ export default function Hero() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = getComputedStyle(document.documentElement)
-        .getPropertyValue('--hero-accent')
-        .trim()
-        .replace(')', ',0.45)')
-        .replace('#', 'rgba(');
+      ctx.fillStyle = isLight
+        ? 'rgba(249,115,22,0.45)'
+        : 'rgba(0,26,249,0.45)';
 
       particles.forEach((p) => {
         ctx.globalAlpha = p.opacity;
@@ -63,7 +83,7 @@ export default function Hero() {
     animate();
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
-  }, []);
+  }, [isLight]);
 
   return (
     <section
@@ -115,7 +135,6 @@ export default function Hero() {
                 Hi, I’m
               </h2>
 
-              {/* ✅ NAME – FULLY THEME REACTIVE */}
               <h1
                 className="text-5xl md:text-7xl font-extrabold leading-tight"
                 style={{
@@ -130,20 +149,18 @@ export default function Hero() {
               </h1>
             </div>
 
+            {/* TYPEWRITER */}
             <div className="flex items-center gap-3 text-2xl md:text-3xl font-semibold">
-  <span
-  className="mr-2 font-medium"
-  style={{
-    color: document.documentElement.classList.contains('light')
-      ? '#000000'
-      : '#ffffff',
-  }}
->
-  I am a
-</span>
+              <span
+                className="mr-2 font-medium"
+                style={{ color: isLight ? '#111827' : '#ffffff' }}
+              >
+                I am a
+              </span>
 
-  <TypeText />
-</div>
+              <TypeText isLight={isLight} />
+            </div>
+
             <p
               className="text-lg max-w-xl leading-relaxed"
               style={{ color: 'var(--hero-text-secondary)' }}
@@ -161,7 +178,9 @@ export default function Hero() {
                 background: 'rgba(0,0,0,0.65)',
                 color: '#fff',
                 borderColor: 'rgba(255,255,255,0.15)',
-                boxShadow: '0 0 32px var(--glow-color)',
+                boxShadow: isLight
+                  ? '0 0 28px rgba(249,115,22,0.45)'
+                  : '0 0 32px rgba(0,26,249,0.45)',
               }}
             >
               <HiDownload className="text-xl" />
@@ -169,7 +188,7 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* RIGHT – IMAGE / GLOW */}
+          {/* RIGHT – GLOW */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -182,8 +201,9 @@ export default function Hero() {
                 transition={{ duration: 6, repeat: Infinity }}
                 className="absolute inset-0 rounded-full blur-[110px] opacity-35"
                 style={{
-                  background:
-                    'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
+                  background: isLight
+                    ? 'linear-gradient(135deg,#f97316,#facc15)'
+                    : 'linear-gradient(135deg,#001AF9,#4F6BFF)',
                 }}
               />
             </div>
@@ -192,11 +212,14 @@ export default function Hero() {
         </div>
       </div>
     </section>
-    
   );
 }
-function TypeText() {
-  const [text, helper] = useTypewriter({
+
+/* ===============================
+   TYPEWRITER COMPONENT
+=============================== */
+function TypeText({ isLight }) {
+  const [text] = useTypewriter({
     words: [
       'Full Stack Developer',
       'Content Creator',
@@ -208,8 +231,6 @@ function TypeText() {
     delaySpeed: 2000,
   });
 
-  const isLight = document.documentElement.classList.contains('light');
-
   const styleMap = {
     'Full Stack Developer': 'type-fs',
     'Content Creator': 'type-cc',
@@ -218,20 +239,13 @@ function TypeText() {
 
   return (
     <span
-      className={`
-        typing-text
-        ${!isLight ? styleMap[text] || '' : ''}
-        ${helper.isTypeDone && !isLight ? 'typing-done' : ''}
-      `}
+      className={`typing-text ${!isLight ? styleMap[text] || '' : ''}`}
       style={{
         color: isLight ? '#111827' : undefined,
       }}
     >
       {text}
-      <Cursor
-        cursorStyle="|"
-        cursorColor={isLight ? '#111827' : '#ffffff'}
-      />
+      <Cursor cursorStyle="|" cursorColor={isLight ? '#111827' : '#ffffff'} />
     </span>
   );
 }
