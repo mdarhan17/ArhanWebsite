@@ -88,17 +88,26 @@ export default function Hero() {
 
   return (
     <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
-      style={{
-        background: `linear-gradient(
-          to bottom,
-          var(--hero-bg-start),
-          var(--hero-bg-mid),
-          var(--hero-bg-end)
-        )`,
-      }}
-    >
+  id="home"
+  className="
+    relative min-h-screen
+    flex items-center justify-center
+    overflow-hidden
+    pt-24
+    px-4 sm:px-6 lg:px-0
+  "
+  style={{
+    background: `
+      linear-gradient(
+        to bottom,
+        var(--hero-bg-start),
+        var(--hero-bg-mid),
+        var(--hero-bg-end)
+      )
+    `,
+  }}
+>
+
       {/* PARTICLES */}
       <canvas
         ref={canvasRef}
@@ -119,7 +128,8 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
 
           {/* LEFT */}
           <motion.div
@@ -137,7 +147,8 @@ export default function Hero() {
               </h2>
 
               <h1
-                className="text-5xl md:text-7xl font-extrabold leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+  font-extrabold leading-tight"
                 style={{
                   background:
                     'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
@@ -196,7 +207,12 @@ export default function Hero() {
   transition={{ duration: 0.8, delay: 0.2 }}
   className="relative flex justify-center items-center"
 >
-  <div className="relative w-[460px] h-[460px]">
+  <div className=" relative
+  w-[280px] h-[280px]
+  sm:w-[340px] sm:h-[340px]
+  md:w-[380px] md:h-[380px]
+  lg:w-[460px] lg:h-[460px]
+  mx-autorelative w-[460px] h-[460px]">
 
     {/* 🔵🔶 BIG OUTER AURA (SLOW BREATHING) */}
     <motion.div
@@ -264,6 +280,7 @@ export default function Hero() {
 
         </div>
       </div>
+      
     </section>
   );
 }
