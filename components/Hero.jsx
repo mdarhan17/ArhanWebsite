@@ -189,53 +189,70 @@ export default function Hero() {
           </motion.div>
           {/* RIGHT – CARTOON IMAGE */}
 {/* RIGHT – IMAGE WITH FLOATING AURA */}
+{/* RIGHT – IMAGE WITH BIG FLOATING AURA */}
 <motion.div
   initial={{ opacity: 0, x: 50 }}
   animate={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, delay: 0.2 }}
   className="relative flex justify-center items-center"
 >
-  <div className="relative w-[420px] h-[420px]">
+  <div className="relative w-[460px] h-[460px]">
 
-    {/* 🌈 MAIN FLOATING AURA */}
+    {/* 🔵🔶 BIG OUTER AURA (SLOW BREATHING) */}
     <motion.div
-      animate={{ y: [0, -18, 0], scale: [1, 1.08, 1] }}
+      animate={{
+        y: [0, -26, 0],
+        scale: [1, 1.15, 1],
+      }}
       transition={{
-        duration: 7,
+        duration: 10,
         repeat: Infinity,
         ease: 'easeInOut',
       }}
-      className="absolute inset-0 rounded-full blur-[130px] opacity-40"
+      className="absolute inset-[-40px] rounded-full blur-[160px] opacity-45"
       style={{
         background: isLight
-          ? 'linear-gradient(135deg,#f97316,#facc15)'
+          ? 'linear-gradient(135deg,#f97316,#fde047)'
           : 'linear-gradient(135deg,#001AF9,#4F6BFF)',
       }}
     />
 
-    {/* ✨ SECOND SOFT AURA (slower) */}
+    {/* ✨ INNER ENERGY AURA (COUNTER FLOAT) */}
     <motion.div
-      animate={{ y: [0, 12, 0] }}
+      animate={{
+        y: [0, 18, 0],
+        scale: [1, 1.08, 1],
+      }}
       transition={{
-        duration: 9,
+        duration: 12,
         repeat: Infinity,
         ease: 'easeInOut',
       }}
-      className="absolute inset-6 rounded-full blur-[90px] opacity-30"
+      className="absolute inset-[-10px] rounded-full blur-[110px] opacity-35"
       style={{
         background: isLight
-          ? 'linear-gradient(135deg,#fb923c,#fde047)'
+          ? 'linear-gradient(135deg,#fb923c,#facc15)'
           : 'linear-gradient(135deg,#2563eb,#60a5fa)',
       }}
     />
 
-    {/* 🧑 CARTOON IMAGE (NO FLOAT) */}
+    {/* 🌫️ SOFT AMBIENT GLOW (STATIC DEPTH) */}
+    <div
+      className="absolute inset-[20px] rounded-full blur-[90px] opacity-20"
+      style={{
+        background: isLight
+          ? 'linear-gradient(135deg,#fde68a,#fb923c)'
+          : 'linear-gradient(135deg,#1e40af,#3b82f6)',
+      }}
+    />
+
+    {/* 🧑 CARTOON IMAGE – ALWAYS ON TOP */}
     <div className="relative z-10 w-full h-full flex items-center justify-center">
       <Image
         src={isLight ? '/orange.png' : '/blue.png'}
         alt="Mohammed Arhan"
-        width={360}
-        height={360}
+        width={380}
+        height={380}
         className="object-contain drop-shadow-2xl scale-110"
         priority
       />
@@ -243,6 +260,7 @@ export default function Hero() {
 
   </div>
 </motion.div>
+
 
         </div>
       </div>
