@@ -436,13 +436,6 @@ html.light .glass-nav:hover {
 
   border-color: rgba(249, 115, 22, 0.38);
 }
-html.light .glass-nav {
-  background: rgba(255, 255, 255, 0.82);
-
-  backdrop-filter: blur(40px) saturate(160%);
-  -webkit-backdrop-filter: blur(40px) saturate(160%);
-}
-  /* ✅ SUBT
 
 
 /* ===============================
