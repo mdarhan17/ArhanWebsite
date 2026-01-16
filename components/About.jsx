@@ -1,122 +1,157 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HiCode, HiLightningBolt, HiColorSwatch, HiDatabase } from 'react-icons/hi';
+import Image from 'next/image';
+import {
+  FaYoutube,
+  FaInstagram,
+  FaLinkedin,
+  FaXTwitter,
+  FaSnapchat,
+} from 'react-icons/fa6';
 
 export default function About() {
-  const skills = [
-    {
-      icon: HiCode,
-      title: 'Frontend Development',
-      description: 'React, Next.js, Tailwind CSS, TypeScript',
-    },
-    {
-      icon: HiDatabase,
-      title: 'Backend Development',
-      description: 'Node.js, Express, PostgreSQL, MongoDB',
-    },
-    {
-      icon: HiLightningBolt,
-      title: 'Performance',
-      description: 'Optimization, SEO, Web Vitals',
-    },
-    {
-      icon: HiColorSwatch,
-      title: 'UI/UX Design',
-      description: 'Figma, Design Systems, Prototyping',
-    },
-  ];
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section id="about" className="section-padding relative">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="about"
+      className="relative min-h-screen py-28 overflow-hidden"
+      style={{
+        background:
+          'linear-gradient(to bottom, var(--hero-bg-start), var(--hero-bg-mid), var(--hero-bg-end))',
+      }}
+    >
+      {/* 🌌 FLOATING PARTICLES */}
+      <motion.div
+        animate={{ opacity: [0.25, 0.4, 0.25] }}
+        transition={{ duration: 12, repeat: Infinity }}
+        className="absolute inset-0 pointer-events-none"
+      >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          animate={{ y: [0, -40, 0] }}
+          transition={{ duration: 14, repeat: Infinity }}
+          className="absolute top-1/3 left-1/4 w-[520px] h-[520px] rounded-full blur-[180px]"
+          style={{ background: 'var(--hero-accent)' }}
+        />
+        <motion.div
+          animate={{ y: [0, 40, 0] }}
+          transition={{ duration: 18, repeat: Infinity }}
+          className="absolute bottom-1/4 right-1/4 w-[520px] h-[520px] rounded-full blur-[180px]"
+          style={{ background: 'var(--hero-accent-soft)' }}
+        />
+      </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* TITLE */}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-20 gradient-text"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-            About Me
-          </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            Passionate developer with expertise in building modern web applications and creating engaging digital experiences.
-          </p>
-        </motion.div>
+          About Me
+        </motion.h2>
 
+        {/* GLASS CARD */}
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          transition={{ duration: 0.9 }}
+          className="relative glass rounded-[36px] p-8 md:p-14 border border-white/10 backdrop-blur-2xl"
         >
-          {skills.map((skill, index) => (
+          {/* CARD GLOW */}
+          <div
+            className="absolute inset-0 -z-10 rounded-[36px] blur-[130px] opacity-30"
+            style={{
+              background:
+                'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
+            }}
+          />
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* LEFT – FULL IMAGE */}
             <motion.div
-              key={index}
-              variants={item}
-              whileHover={{ scale: 1.05 }}
-              className="glass rounded-2xl p-6 glow-hover"
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: 'spring', stiffness: 120 }}
+              className="flex justify-center"
             >
-              <div className="flex flex-col items-center text-center space-y-4">
+              <div className="relative w-[260px] h-[320px] md:w-[340px] md:h-[420px] rounded-3xl overflow-hidden border border-white/20">
+                <Image
+                  src="/arhan.jpg"
+                  alt="Mohammed Arhan"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+
+                {/* IMAGE NEON */}
                 <div
-                  className="p-4 rounded-xl glass"
+                  className="absolute inset-0 blur-[100px] opacity-40"
                   style={{
-                    background: 'var(--gradient-accent)',
+                    background:
+                      'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
                   }}
-                >
-                  <skill.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
-                  {skill.title}
-                </h3>
-                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-                  {skill.description}
-                </p>
+                />
               </div>
             </motion.div>
-          ))}
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 glass rounded-2xl p-8 md:p-12"
-        >
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h3 className="text-2xl md:text-3xl font-bold gradient-text mb-6">
-              My Journey
-            </h3>
-            <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              I'm a dedicated full-stack developer with a passion for creating innovative solutions that make a difference.
-              With years of experience in web development, I specialize in building scalable applications using modern technologies.
-            </p>
-            <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Beyond coding, I'm an active content creator, sharing my knowledge and experiences with the developer community.
-              I believe in continuous learning and staying updated with the latest trends in technology.
-            </p>
-            <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
-              or creating content that helps others on their development journey.
-            </p>
+            {/* RIGHT – CONTENT */}
+            <div className="space-y-6 text-lg leading-relaxed">
+              <p style={{ color: 'var(--hero-text-secondary)' }}>
+                I am an <span className="font-semibold text-[var(--hero-accent)]">
+                MCA Graduate (2025)</span> with a strong passion for technology,
+                innovation, and continuous learning. I completed my{' '}
+                <span className="font-semibold text-[var(--hero-accent)]">
+                Full Stack Developer Internship at CDAC, Bengaluru</span>, where
+                I received the{' '}
+                <span className="font-semibold text-[var(--hero-accent)]">
+                Star Performer Award</span>.
+              </p>
+
+              <p style={{ color: 'var(--hero-text-secondary)' }}>
+                I specialize in{' '}
+                <span className="font-semibold text-[var(--hero-accent)]">
+                Full Stack Development</span> and{' '}
+                <span className="font-semibold text-[var(--hero-accent)]">
+                Machine Learning</span>, building scalable and user-focused
+                applications. As a{' '}
+                <span className="font-semibold text-[var(--hero-accent)]">
+                PWD candidate</span>, my journey shaped strong resilience.
+              </p>
+
+              <p style={{ color: 'var(--hero-text-secondary)' }}>
+                Beyond development, I am a{' '}
+                <span className="font-semibold text-[var(--hero-accent)]">
+                Creative Content Creator</span>, Digital Designer, and Social
+                Media Manager with achievements across multiple competitions.
+              </p>
+
+              {/* SOCIAL ICONS */}
+              <div className="flex flex-wrap gap-6 pt-6">
+                {[
+                  { icon: FaYoutube, color: '#ff0000' },
+                  { icon: FaInstagram, color: '#e1306c' },
+                  { icon: FaLinkedin, color: '#0a66c2' },
+                  { icon: FaXTwitter, color: '#1da1f2' },
+                  { icon: FaSnapchat, color: '#fffc00' },
+                ].map((item, i) => (
+                  <motion.a
+                    key={i}
+                    href="#"
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 0.9 }}
+                    style={{
+                      color: item.color,
+                      filter: `drop-shadow(0 0 12px ${item.color})`,
+                    }}
+                    className="text-3xl"
+                  >
+                    <item.icon />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
