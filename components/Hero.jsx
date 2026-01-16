@@ -147,8 +147,7 @@ export default function Hero() {
               </h2>
 
               <h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-  font-extrabold leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
                 style={{
                   background:
                     'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
@@ -162,7 +161,7 @@ export default function Hero() {
             </div>
 
             {/* TYPEWRITER */}
-            <div className="flex items-center gap-1 text-2xl md:text-3xl font-semibold">
+            <div className="flex items-center gap-2 text-[20px] sm:text-2xl md:text-3xl font-semibold whitespace-nowrap">
               <span
                 className="mr-2 font-medium"
                 style={{ color: isLight ? '#111827' : '#ffffff' }}
@@ -198,8 +197,7 @@ export default function Hero() {
               Download Resume
             </motion.a>
           </motion.div>
-          {/* RIGHT – CARTOON IMAGE */}
-{/* RIGHT – IMAGE WITH FLOATING AURA */}
+     
 {/* RIGHT – IMAGE WITH BIG FLOATING AURA */}
 <motion.div
   initial={{ opacity: 0, x: 50 }}
@@ -307,15 +305,11 @@ function TypeText({ isLight }) {
     'Digital Designer': 'type-dd',
   };
 
-  return (
-    <span
-      className={`typing-text ${!isLight ? styleMap[text] || '' : ''}`}
-    >
-      {text}
-      <Cursor
-        cursorStyle="|"
-        cursorColor={isLight ? '#111827' : 'rgba(255,255,255,0.75)'}
-      />
-    </span>
-  );
+ return (
+  <span className={`typing-text ${styleMap[text]} inline-block whitespace-nowrap`}>
+    {text}
+    <Cursor cursorStyle="|" />
+  </span>
+);
+
 }
