@@ -180,22 +180,20 @@ export default function Hero() {
             </p>
 
             <motion.a
-              href="/resume.pdf"
-              whileHover={{ scale: 1.06 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-9 py-4 rounded-xl font-semibold border backdrop-blur-xl transition-all"
-              style={{
-                background: 'rgba(0,0,0,0.65)',
-                color: '#fff',
-                borderColor: 'rgba(255,255,255,0.15)',
-                boxShadow: isLight
-                  ? '0 0 28px rgba(249,115,22,0.45)'
-                  : '0 0 32px rgba(0,26,249,0.45)',
-              }}
-            >
-              <HiDownload className="text-xl" />
-              Download Resume
-            </motion.a>
+  href="/resume.pdf"
+  whileHover={{ scale: 1.06 }}
+  whileTap={{ scale: 0.95 }}
+  className="
+    glass-btn
+    mx-auto md:mx-0
+    flex items-center justify-center
+  "
+>
+  <span className="glass-btn-text">
+     Download Resume
+  </span>
+</motion.a>
+
           </motion.div>
      
 {/* RIGHT – IMAGE WITH BIG FLOATING AURA */}

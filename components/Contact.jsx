@@ -9,19 +9,19 @@ export default function Contact() {
     {
       icon: HiMail,
       title: 'Email',
-      value: 'hello@mohammedarhan.com',
-      link: 'mailto:hello@mohammedarhan.com',
+      value: 'mdarhanofficial@gmail.com',
+      link: 'mailto:mdarhanofficial@gmail.com',
     },
     {
       icon: HiPhone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+91 9731115171',
+      link: 'tel:9731115171',
     },
     {
       icon: HiLocationMarker,
       title: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Mangalore, India',
       link: null,
     },
   ];

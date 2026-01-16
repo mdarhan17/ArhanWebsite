@@ -606,3 +606,104 @@ html.light .typing-text {
   from { opacity: 0.6 }
   to { opacity: 1 }
 }
+/* ================================
+   GLASS NEON BUTTON
+================================ */
+
+.glass-btn {
+  position: relative;
+  width: 260px;
+  height: 56px;
+  border-radius: 999px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.5s ease;
+}
+
+/* TEXT */
+.glass-btn-text {
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: white;
+}
+
+/* ================================
+   NEON AURA LAYER
+================================ */
+
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(40px);
+  transition: opacity 0.5s ease;
+}
+
+/* ================================
+   DARK THEME (ROYAL BLUE)
+================================ */
+
+:root .glass-btn::before {
+  background: radial-gradient(
+    circle,
+    rgba(0, 26, 249, 0.9),
+    rgba(79, 107, 255, 0.6),
+    transparent 70%
+  );
+}
+
+:root .glass-btn:hover {
+  box-shadow:
+    0 0 32px rgba(0, 26, 249, 0.6),
+    0 0 64px rgba(79, 107, 255, 0.45);
+}
+
+/* ================================
+   LIGHT THEME (ORANGE + YELLOW)
+================================ */
+html.light .glass-btn {
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+
+  border: 2px solid rgba(0, 0, 0, 0.22); /* ✅ subtle black stroke */
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+html.light .glass-btn-text {
+  color: #111827;
+}
+
+html.light .glass-btn::before {
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.9),
+    rgba(250, 204, 21, 0.65),
+    transparent 70%
+  );
+}
+
+html.light .glass-btn:hover {
+  box-shadow:
+    0 0 36px rgba(249, 115, 22, 0.55),
+    0 0 70px rgba(250, 204, 21, 0.45);
+}
+
+
+/* ================================
+   HOVER ACTIVATE AURA
+================================ */
+
+.glass-btn:hover::before {
+  opacity: 1;
+}
