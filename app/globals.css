@@ -599,13 +599,11 @@ html.light .typing-text {
   text-shadow: none;
 }
 .typing-text {
-  animation: typingFade 1.2s ease-in-out;
+  will-change: contents;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-@keyframes typingFade {
-  from { opacity: 0.6 }
-  to { opacity: 1 }
-}
 /* ================================
    GLASS NEON BUTTON
 ================================ */
@@ -621,6 +619,8 @@ html.light .typing-text {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: all 0.5s ease;
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
 /* TEXT */
@@ -644,6 +644,7 @@ html.light .typing-text {
   opacity: 0;
   filter: blur(40px);
   transition: opacity 0.5s ease;
+  will-change: opacity;
 }
 
 /* ================================
@@ -707,3 +708,13 @@ html.light .glass-btn:hover {
 .glass-btn:hover::before {
   opacity: 1;
 }
+canvas {
+  will-change: transform;
+  transform: translateZ(0);
+}
+@media (max-width: 768px) {
+  .glass-btn::before {
+    filter: blur(28px);
+  }
+}
+
