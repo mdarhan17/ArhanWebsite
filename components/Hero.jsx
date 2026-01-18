@@ -276,7 +276,9 @@ export default function Hero() {
 
         </div>
       </div>
-      
+      {/* GLASS DIVIDER */}
+<div className="hero-divider" />
+
     </section>
   );
 }
