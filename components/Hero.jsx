@@ -111,7 +111,7 @@ export default function Hero() {
       {/* PARTICLES */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 pointer-events-none opacity-35"
+        className="absolute inset-0 w-full h-full max-w-full pointer-events-none opacity-35"
       />
 
       {/* BACKGROUND BLOBS */}
@@ -221,7 +221,11 @@ export default function Hero() {
         repeat: Infinity,
         ease: 'easeInOut',
       }}
-      className="absolute inset-[-40px] rounded-full blur-[160px] opacity-45"
+      className="absolute
+  inset-[-20px] sm:inset-[-40px]
+  rounded-full
+  blur-[100px] sm:blur-[160px]
+  opacity-45"
       style={{
         background: isLight
           ? 'linear-gradient(135deg,#f97316,#fde047)'
@@ -265,15 +269,13 @@ export default function Hero() {
         alt="Mohammed Arhan"
         width={380}
         height={380}
-        className="object-contain drop-shadow-2xl scale-110"
+        className="object-contain drop-shadow-2xl scale-105 sm:scale-110"
         priority
       />
-    </div>
+         </div>
 
-  </div>
-</motion.div>
-
-
+        </div>
+          </motion.div>
         </div>
       </div>
       {/* GLASS DIVIDER */}
