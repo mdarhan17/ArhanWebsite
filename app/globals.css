@@ -805,4 +805,63 @@ html.light .hero-divider {
       0 0 22px rgba(250,204,21,0.25);
   }
 }
+/* ================================
+                    ABOUT SECTION */
+:root{
+  --about-vignette: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.04),
+    transparent 65%
+  );
+
+  html.light {
+    --about-vignette: radial-gradient(
+      circle at center,
+      rgba(0,0,0,0.04),
+      transparent 65%
+    );
+  }
+}
+:root {
+  --about-vignette: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.04),
+    transparent 65%
+  );
+}
+
+html.light {
+  --about-vignette: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.04),
+    transparent 65%
+  );
+}
+
+/* DARK THEME */
+:root {
+  --hero-highlight: #38bdf8; /* cyan-blue */
+}
+
+/* LIGHT THEME */
+html.light {
+  --hero-highlight: #f97316; /* orange */
+}
+/* ==============================
+   LIGHT THEME – EXTRA SOFT DARK GLASS
+================================ */
+html.light .glass {
+  background: linear-gradient(
+    135deg,
+    rgba(110, 110, 110, 0.32),
+    rgba(80, 80, 80, 0.22)
+  );
+
+  backdrop-filter: blur(24px) saturate(130%);
+  -webkit-backdrop-filter: blur(24px) saturate(130%);
+
+  border: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+
 

@@ -3,66 +3,60 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import {
+  FaEnvelope,
   FaYoutube,
   FaInstagram,
   FaLinkedin,
   FaXTwitter,
-  FaSnapchat,
 } from 'react-icons/fa6';
+
 
 export default function About() {
   return (
-   <section
+  <section
   id="about"
   className="
     relative min-h-[90vh] py-24 overflow-hidden
-    bg-black
-    light:bg-white
+    bg-[var(--bg-primary)]
   "
 >
 
+
   {/* ================= PREMIUM FLOATING PARTICLES ================= */}
   {/* ================= BACKGROUND PARTICLES ================= */}
+{/* ================= BACKGROUND PARTICLES (VISIBLE) ================= */}
 <motion.div
-  className="absolute inset-0 pointer-events-none"
-  animate={{ opacity: [0.14, 0.22, 0.14] }}
-  transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+  className="absolute inset-0 z-0 pointer-events-none"
+  animate={{ opacity: [0.25, 0.4, 0.25] }}
+  transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
 >
-  {/* PRIMARY FLOAT */}
+  {/* PRIMARY GLOW */}
   <motion.div
-    animate={{ y: [0, -40, 0], x: [0, 20, 0] }}
-    transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-    className="
-      absolute top-1/4 left-1/4
-      w-[480px] h-[480px]
-      rounded-full blur-[160px]
-      bg-[var(--hero-accent)]
-      opacity-35
-    "
-  />
-
-  {/* SECONDARY FLOAT */}
-  <motion.div
-    animate={{ y: [0, 45, 0], x: [0, -25, 0] }}
+    animate={{ y: [0, -40, 0], x: [0, 30, 0] }}
     transition={{ duration: 26, repeat: Infinity, ease: 'easeInOut' }}
     className="
-      absolute bottom-1/4 right-1/4
+      absolute top-1/4 left-1/4
       w-[520px] h-[520px]
-      rounded-full blur-[180px]
-      bg-[var(--hero-accent-soft)]
-      opacity-30
+      rounded-full blur-[140px]
+      opacity-40
     "
+    style={{ background: 'var(--hero-accent)' }}
   />
 
-  {/* DEPTH VIGNETTE */}
-  <div
+  {/* SECONDARY GLOW */}
+  <motion.div
+    animate={{ y: [0, 50, 0], x: [0, -35, 0] }}
+    transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
     className="
-      absolute inset-0
-      bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_65%)]
-      light:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04),transparent_65%)]
+      absolute bottom-1/4 right-1/4
+      w-[580px] h-[580px]
+      rounded-full blur-[180px]
+      opacity-35
     "
+    style={{ background: 'var(--hero-accent-soft)' }}
   />
 </motion.div>
+
 
 
   {/* ================= CONTENT WRAPPER ================= */}
@@ -92,40 +86,47 @@ export default function About() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* ================= LEFT IMAGE ================= */}
-            {/* ================= LEFT IMAGE ================= */}
+{/* ================= LEFT IMAGE ================= */}
 <motion.div
-  initial={{ opacity: 0, scale: 0.95 }}
+  initial={{ opacity: 0, scale: 0.96 }}
   whileInView={{ opacity: 1, scale: 1 }}
   viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
+  transition={{ duration: 0.8, ease: 'easeOut' }}
   className="relative flex justify-center items-center"
 >
+  {/* 🌈 OUTER SOFT GLOW (SEPARATE – NO BLUR ON IMAGE) */}
+  <div
+    className="absolute -inset-10 rounded-full blur-[120px] opacity-30"
+    style={{
+      background:
+        'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
+    }}
+  />
+
+  {/* 🧊 GLASS STROKE FRAME */}
   <div
     className="
-      relative 
+      relative
       w-[240px] h-[320px]
       sm:w-[280px] sm:h-[360px]
       md:w-[340px] md:h-[440px]
-      rounded-3xl 
+      rounded-3xl
       overflow-hidden
-      border border-white/20
-      backdrop-blur-sm
     "
+    style={{
+      background: 'rgba(255,255,255,0.04)',
+      border: '2px solid rgba(255,255,255,0.35)',   // 👈 crisp glass stroke
+      boxShadow: `
+        inset 0 0 1px rgba(255,255,255,0.6),
+        0 0 30px var(--glow-color)
+      `,
+    }}
   >
-    {/* 🌈 BACK AURA (BEHIND IMAGE) */}
-    <div
-      className="absolute inset-0 -z-10 blur-[90px] opacity-30"
-      style={{
-        background:
-          'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
-      }}
-    />
-
-    {/* 🧑 IMAGE (CRISP + SMOOTH ZOOM) */}
+    {/* 🧑 IMAGE (CRISP – NO BLUR) */}
     <motion.div
-      whileHover={{ scale: 1.08 }}
+      whileHover={{ scale: 1.06 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="w-full h-full"
+      className="relative w-full h-full"
     >
       <Image
         src="/arhan.jpg"
@@ -138,39 +139,49 @@ export default function About() {
       />
     </motion.div>
 
-    {/* ✨ SUBTLE EDGE GLOW */}
+    {/* ✨ INNER EDGE SHINE */}
     <div
       className="pointer-events-none absolute inset-0 rounded-3xl"
       style={{
-        boxShadow:
-          'inset 0 0 0.5px rgba(255,255,255,0.4), 0 0 40px var(--glow-color)',
+        boxShadow: 'inset 0 0 0.8px rgba(255,255,255,0.55)',
       }}
     />
   </div>
 </motion.div>
 
 
-          {/* ================= RIGHT CONTENT ================= */}
-<div className="space-y-6 text-lg leading-relaxed">
+{/* ================= RIGHT CONTENT ================= */}
+<div className="space-y-5 text-lg leading-relaxed">
 
-  {/* PARAGRAPH 1 */}
   <p className="text-[var(--hero-text-primary)]">
     I am an{' '}
     <span className="font-semibold text-[var(--hero-highlight)]">
       MCA Graduate (2025)
     </span>{' '}
-    with a strong passion for technology, innovation, and continuous
-    learning. I completed my{' '}
+    with a strong passion for technology and innovation. I completed my{' '}
     <span className="font-semibold text-[var(--hero-highlight)]">
       Full Stack Developer Internship at CDAC, Bengaluru
-    </span>{' '}
-    where I received the{' '}
+    </span>
+    , earning the{' '}
     <span className="font-semibold text-[var(--hero-highlight)]">
       Star Performer Award
-    </span>.
+    </span>{' '}
+    for my performance.
   </p>
 
-  {/* PARAGRAPH 2 */}
+  <p className="text-[var(--hero-text-primary)]">
+    Currently, I work as a{' '}
+    <span className="font-semibold text-[var(--hero-highlight)]">
+      Full Stack & AI/ML Engineer
+    </span>{' '}
+    in{' '}
+    <span className="font-semibold text-[var(--hero-highlight)]">
+      Mangalore
+    </span>
+    , building end-to-end web applications and intelligent, data-driven
+    solutions using modern frameworks and machine learning models.
+  </p>
+
   <p className="text-[var(--hero-text-primary)]">
     I specialize in{' '}
     <span className="font-semibold text-[var(--hero-highlight)]">
@@ -180,54 +191,74 @@ export default function About() {
     <span className="font-semibold text-[var(--hero-highlight)]">
       Machine Learning
     </span>
-    , building scalable and user-focused applications. As a{' '}
+    , focusing on scalable, secure, and user-centric applications. As a{' '}
     <span className="font-semibold text-[var(--hero-highlight)]">
       PWD candidate
     </span>
-    , my journey has strengthened my resilience and discipline.
+    , my journey has strengthened my resilience and adaptability.
   </p>
 
-  {/* PARAGRAPH 3 */}
   <p className="text-[var(--hero-text-primary)]">
     Beyond development, I am a{' '}
     <span className="font-semibold text-[var(--hero-highlight)]">
       Creative Content Creator
     </span>
-    , Digital Designer, and Social Media Manager with achievements across
-    multiple competitions.
+    ,{' '}
+    <span className="font-semibold text-[var(--hero-highlight)]">
+      Digital Designer
+    </span>
+    , and{' '}
+    <span className="font-semibold text-[var(--hero-highlight)]">
+      Social Media Manager
+    </span>
+    , blending technical expertise with creativity.
   </p>
 
   {/* ================= SOCIAL ICONS ================= */}
-  <div className="flex flex-wrap gap-6 pt-6">
-    {[
-      { icon: FaYoutube, color: '#ff0000' },
-      { icon: FaInstagram, color: '#e1306c' },
-      { icon: FaLinkedin, color: '#0a66c2' },
-      { icon: FaXTwitter, color: '#1da1f2' },
-      { icon: FaSnapchat, color: '#fffc00' },
-    ].map((item, i) => (
-      <motion.a
-        key={i}
-        href="#"
-        whileHover={{
-          scale: 1.18,
-          rotate: -6,
-        }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: 'spring', stiffness: 220 }}
-        className="w-12 h-12 rounded-full flex items-center justify-center glass border border-white/15 shadow-md"
-      >
-        <item.icon
-          className="text-2xl"
-          style={{ color: item.color }}
-        />
-      </motion.a>
-    ))}
-              </div>
+<div className="
+  flex items-center gap-5 pt-6
+  flex-nowrap
+  overflow-x-auto
+  md:overflow-visible
+">
+  {[
+    { icon: FaEnvelope, color: '#ea4335', link: 'mailto:yourmail@gmail.com' }, // Gmail
+    { icon: FaYoutube, color: '#ff0000', link: 'https://youtube.com' },
+    { icon: FaLinkedin, color: '#0a66c2', link: 'https://linkedin.com' },
+    { icon: FaInstagram, color: '#e1306c', link: 'https://instagram.com' },
+    { icon: FaXTwitter, color: '#1da1f2', link: 'https://x.com' },
+  ].map((item, i) => (
+    <motion.a
+      key={i}
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.15, rotate: -5 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: 'spring', stiffness: 220 }}
+      className="
+        w-11 h-11
+        min-w-[44px]
+        rounded-full
+        flex items-center justify-center
+        glass
+        border border-white/20
+        shadow-md
+      "
+    >
+      <item.icon
+        className="text-xl"
+        style={{ color: item.color }}
+      />
+    </motion.a>
+  ))}
+</div>
+
             </div>
           </div>
         </motion.div>
       </div>
+      <div className="hero-divider" />
     </section>
   );
 }
