@@ -12,15 +12,15 @@ import {
 
 export default function About() {
   return (
-    <section
+   <section
   id="about"
-  className="relative min-h-[90vh] py-24 overflow-hidden"
-  style={{
-    background: document.documentElement.classList.contains('light')
-      ? '#ffffff'
-      : '#000000',
-  }}
+  className="
+    relative min-h-[90vh] py-24 overflow-hidden
+    bg-black
+    light:bg-white
+  "
 >
+
   {/* ================= PREMIUM FLOATING PARTICLES ================= */}
   {/* ================= BACKGROUND PARTICLES ================= */}
 <motion.div
@@ -223,8 +223,6 @@ export default function About() {
         />
       </motion.a>
     ))}
- 
-
               </div>
             </div>
           </div>
