@@ -90,7 +90,7 @@ export default function Hero() {
     <section
   id="home"
   className="
-    relative min-h-screen
+    relative min-h-screen w-full
     flex items-center justify-center
     overflow-hidden
     pt-24
