@@ -1,0 +1,167 @@
+/* ===============================
+   WRAPPER
+================================ */
+.wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #020617;
+  overflow: hidden;
+}
+
+/* ===============================
+   SUBTLE ELECTRIC BLUE BACKGROUND
+================================ */
+.bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(0,40,255,0.25), #020617 70%);
+}
+
+/* ===============================
+   IMAGE CONTAINER (FIXED SIZE)
+================================ */
+.imageWrap {
+  position: relative;
+  width: 230px;
+  height: 380px;
+  z-index: 2;
+}
+
+/* ===============================
+   BLACK SHADOW BASE
+================================ */
+.shadowImg {
+  object-fit: contain;
+  filter:
+    brightness(0)
+    drop-shadow(0 0 45px rgba(0,0,0,1));
+  opacity: 0.95;
+}
+
+/* ===============================
+   REVEAL MASK (NO SIZE CHANGE)
+================================ */
+.reveal {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  /* 🔥 SOFT EDGE – removes rectangle feel */
+  mask-image: linear-gradient(
+    to top,
+    rgba(255,255,255,1) 85%,
+    rgba(255,255,255,0.6) 92%,
+    rgba(255,255,255,0.2) 96%,
+    rgba(255,255,255,0) 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(255,255,255,1) 85%,
+    rgba(255,255,255,0.6) 92%,
+    rgba(255,255,255,0.2) 96%,
+    rgba(255,255,255,0) 100%
+  );
+}
+.reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,160,255,0.9),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(0,160,255,0.9);
+}
+
+
+/* ===============================
+   REAL IMAGE (HOLOGRAM FEEL)
+================================ */
+.realImg {
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 22px rgba(0,120,255,0.75))
+    drop-shadow(0 0 48px rgba(0,80,255,0.55));
+}
+
+/* ===============================
+   PERCENT
+================================ */
+.percent {
+  margin-top: 22px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #9bbcff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(0,120,255,0.8);
+}
+
+/* ===============================
+   TYPEWRITER TEXT
+================================ */
+.text {
+  margin-top: 28px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.text span {
+  opacity: 0;
+  display: inline-block;
+  animation: type 0.35s forwards;
+  background: linear-gradient(
+    135deg,
+    #38bdf8,
+    #818cf8,
+    #f472b6,
+    #22c55e
+  );
+  background-size: 300%;
+  animation-name: type, flow;
+  animation-duration: 0.35s, 3s;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: forwards;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes type {
+  to { opacity: 1; }
+}
+
+@keyframes flow {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+  .imageWrap {
+    width: 180px;
+    height: 300px;
+  }
+
+  .percent {
+    font-size: 18px;
+  }
+
+  .text {
+    font-size: 16px;
+    padding: 0 18px;
+  }
+}

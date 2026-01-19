@@ -1,8 +1,10 @@
 import './globals.css';
+import LoadingProvider from '@/components/LoadingProvider';
 
 export const metadata = {
   title: 'Mohammed Arhan - Full Stack Developer & Content Creator',
-  description: 'Portfolio of Mohammed Arhan - Full Stack Developer and Content Creator specializing in modern web development',
+  description:
+    'Portfolio of Mohammed Arhan - Full Stack Developer and Content Creator specializing in modern web development',
   openGraph: {
     title: 'Mohammed Arhan - Full Stack Developer & Content Creator',
     description: 'Portfolio showcasing web development projects and content creation',
@@ -27,7 +29,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {/* 🔥 LOADER WRAPPER */}
+        <LoadingProvider>
+          {children}
+        </LoadingProvider>
+      </body>
     </html>
   );
 }
