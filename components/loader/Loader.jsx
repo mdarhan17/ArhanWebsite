@@ -19,56 +19,55 @@ export default function Loader() {
         clearInterval(timer);
         setTimeout(() => setDone(true), 600);
       }
-    }, 45); // ~4.5 sec
+    }, 45); // ~4.5s smooth cinematic
 
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div className={styles.wrapper}>
-      {/* BACKGROUND */}
+      {/* 🔵 BACKGROUND */}
       <div className={styles.bg} />
 
-      {/* IMAGE HOLDER */}
+      {/* 🧍 IMAGE CONTAINER */}
       <div className={styles.imageWrap}>
         
-        {/* BLACK SHADOW BASE (FULL BODY ALWAYS PRESENT) */}
+        {/* 🖤 BLACK SHADOW (ALWAYS FULL BODY) */}
         <Image
           src="/loader.png"
-          alt="shadow"
+          alt="Loader Shadow"
           fill
           priority
           className={styles.shadowImg}
         />
 
-        {/* REAL IMAGE REVEAL (BOTTOM → TOP) */}
-        <div
-          className={styles.reveal}
+        {/* ✨ REAL IMAGE – PURE BOTTOM → TOP REVEAL */}
+        <Image
+          src="/loader.png"
+          alt="Loader Reveal"
+          fill
+          priority
+          className={styles.realImg}
           style={{
-            clipPath: `inset(${100 - progress}% 0 0 0)`
+            '--fill': `${progress}%`,
           }}
-        >
-          <Image
-            src="/loader.png"
-            alt="reveal"
-            fill
-            priority
-            className={styles.realImg}
-          />
-        </div>
+        />
 
       </div>
 
-      {/* PERCENT */}
+      {/* 🔢 PERCENT */}
       <div className={styles.percent}>{progress}%</div>
 
-      {/* TYPEWRITER TEXT */}
+      {/* ✍️ TYPEWRITER TEXT */}
       {done && (
         <p className={styles.text}>
           {'Hello Guys, Welcome To My Portfolio Website'
             .split('')
             .map((char, i) => (
-              <span key={i} style={{ animationDelay: `${i * 0.05}s` }}>
+              <span
+                key={i}
+                style={{ animationDelay: `${i * 0.05}s` }}
+              >
                 {char === ' ' ? '\u00A0' : char}
               </span>
             ))}

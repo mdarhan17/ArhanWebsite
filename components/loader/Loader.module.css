@@ -14,17 +14,20 @@
 }
 
 /* ===============================
-   SUBTLE ELECTRIC BLUE BACKGROUND
+   ELECTRIC BLUE BACKGROUND
 ================================ */
 .bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(0,40,255,0.25), #020617 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 60, 255, 0.22),
+    #020617 72%
+  );
 }
 
 /* ===============================
-   IMAGE CONTAINER (FIXED SIZE)
+   IMAGE CONTAINER (FIXED)
 ================================ */
 .imageWrap {
   position: relative;
@@ -34,70 +37,32 @@
 }
 
 /* ===============================
-   BLACK SHADOW BASE
+   BLACK SHADOW PNG
 ================================ */
 .shadowImg {
   object-fit: contain;
-  filter:
-    brightness(0)
-    drop-shadow(0 0 45px rgba(0,0,0,1));
+  filter: brightness(0) drop-shadow(0 0 40px rgba(0, 0, 0, 1));
   opacity: 0.95;
 }
 
 /* ===============================
-   REVEAL MASK (NO SIZE CHANGE)
-================================ */
-.reveal {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-
-  /* 🔥 SOFT EDGE – removes rectangle feel */
-  mask-image: linear-gradient(
-    to top,
-    rgba(255,255,255,1) 85%,
-    rgba(255,255,255,0.6) 92%,
-    rgba(255,255,255,0.2) 96%,
-    rgba(255,255,255,0) 100%
-  );
-
-  -webkit-mask-image: linear-gradient(
-    to top,
-    rgba(255,255,255,1) 85%,
-    rgba(255,255,255,0.6) 92%,
-    rgba(255,255,255,0.2) 96%,
-    rgba(255,255,255,0) 100%
-  );
-}
-.reveal::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0,160,255,0.9),
-    transparent
-  );
-  box-shadow: 0 0 20px rgba(0,160,255,0.9);
-}
-
-
-/* ===============================
-   REAL IMAGE (HOLOGRAM FEEL)
+   REAL IMAGE – PURE REVEAL
 ================================ */
 .realImg {
   object-fit: contain;
+
+  /* 🔥 PURE IMAGE CLIP (NO RECTANGLE POSSIBLE) */
+  clip-path: inset(calc(100% - var(--fill)) 0 0 0);
+  transition: clip-path 0.04s linear;
+
+  /* hologram glow */
   filter:
-    drop-shadow(0 0 22px rgba(0,120,255,0.75))
-    drop-shadow(0 0 48px rgba(0,80,255,0.55));
+    drop-shadow(0 0 18px rgba(0, 120, 255, 0.7))
+    drop-shadow(0 0 42px rgba(0, 80, 255, 0.55));
 }
 
 /* ===============================
-   PERCENT
+   PERCENT TEXT
 ================================ */
 .percent {
   margin-top: 22px;
@@ -105,7 +70,7 @@
   font-weight: 600;
   color: #9bbcff;
   letter-spacing: 2px;
-  text-shadow: 0 0 12px rgba(0,120,255,0.8);
+  text-shadow: 0 0 12px rgba(0, 120, 255, 0.8);
 }
 
 /* ===============================
@@ -139,12 +104,18 @@
 }
 
 @keyframes type {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes flow {
-  0% { background-position: 0%; }
-  100% { background-position: 300%; }
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
 }
 
 /* ===============================

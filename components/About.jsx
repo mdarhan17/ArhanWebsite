@@ -88,67 +88,66 @@ export default function About() {
             {/* ================= LEFT IMAGE ================= */}
 {/* ================= LEFT IMAGE ================= */}
 <motion.div
-  initial={{ opacity: 0, scale: 0.96 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8, ease: 'easeOut' }}
-  className="relative flex justify-center items-center z-20"
->
-  {/* 🌈 OUTER SOFT GLOW (NO BLUR ON IMAGE) */}
-  <div
-    className="absolute -inset-10 rounded-full blur-[120px] opacity-30 z-0"
-    style={{
-      background:
-        'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
-    }}
-  />
-
-  {/* 🧊 GLASS STROKE FRAME */}
-  <div
-    className="
-      relative
-      z-20
-      w-[240px] h-[320px]
-      sm:w-[280px] sm:h-[360px]
-      md:w-[340px] md:h-[440px]
-      rounded-3xl
-      overflow-hidden
-    "
-    style={{
-      background: 'rgba(255,255,255,0.04)',
-      border: '2px solid rgba(255,255,255,0.35)',
-      boxShadow: `
-        inset 0 0 1px rgba(255,255,255,0.6),
-        0 0 30px var(--glow-color)
-      `,
-    }}
-  >
-    {/* 🧑 IMAGE (CRISP – NO BLUR) */}
-    <motion.div
-      whileHover={{ scale: 1.06 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="relative w-full h-full z-20"
+      initial={{ opacity: 0, scale: 0.96 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="relative flex justify-center items-center z-20"
     >
-      <Image
-        src="/arhan.jpg"
-        alt="Mohammed Arhan"
-        fill
-        sizes="(max-width: 768px) 80vw, 340px"
-        quality={100}
-        priority
-        className="object-cover object-center"
+      {/* 🌈 OUTER SOFT GLOW */}
+      <div
+        className="absolute -inset-10 rounded-full blur-[120px] opacity-30 z-0"
+        style={{
+          background:
+            'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
+        }}
       />
-    </motion.div>
 
-    {/* ✨ INNER EDGE SHINE */}
-    <div
-      className="pointer-events-none absolute inset-0 rounded-3xl z-30"
-      style={{
-        boxShadow: 'inset 0 0 0.8px rgba(255,255,255,0.55)',
-      }}
-    />
-  </div>
-</motion.div>
+      {/* 🧊 IMAGE FRAME */}
+      <div
+        className="
+          relative z-20
+          w-[220px] h-[300px] min-h-[300px]
+          sm:w-[260px] sm:h-[340px] sm:min-h-[340px]
+          md:w-[340px] md:h-[440px] md:min-h-[440px]
+          rounded-3xl
+          overflow-hidden
+          about-image-fix
+        "
+        style={{
+          background: 'rgba(255,255,255,0.04)',
+          border: '2px solid rgba(255,255,255,0.35)',
+          boxShadow: `
+            inset 0 0 1px rgba(255,255,255,0.6),
+            0 0 30px var(--glow-color)
+          `,
+        }}
+      >
+        {/* 🧑 IMAGE */}
+        <motion.div
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full h-full"
+        >
+          <Image
+            src="/arhan.jpg"
+            alt="Mohammed Arhan"
+            fill
+            sizes="100vw"
+            quality={95}
+            className="object-cover object-center"
+          />
+        </motion.div>
+
+        {/* ✨ INNER EDGE SHINE */}
+        <div
+          className="pointer-events-none absolute inset-0 rounded-3xl z-30"
+          style={{
+            boxShadow: 'inset 0 0 0.8px rgba(255,255,255,0.55)',
+          }}
+        />
+      </div>
+    </motion.div>
 
 
 {/* ================= RIGHT CONTENT ================= */}
