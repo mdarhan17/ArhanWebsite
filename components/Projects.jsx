@@ -5,43 +5,50 @@ import { HiExternalLink, HiCode } from 'react-icons/hi';
 
 export default function Projects() {
   const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with real-time inventory management, secure payment processing, and admin dashboard.',
-      tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
-      gradient: 'from-cyan-500 to-blue-500',
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media management with data visualization, scheduling tools, and engagement metrics.',
-      tech: ['React', 'Express', 'MongoDB', 'Chart.js'],
-      gradient: 'from-purple-500 to-pink-500',
-    },
-    {
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates, team collaboration features, and progress tracking.',
-      tech: ['Next.js', 'Firebase', 'Tailwind CSS'],
-      gradient: 'from-orange-500 to-red-500',
-    },
-    {
-      title: 'AI Content Generator',
-      description: 'AI-powered content generation platform using machine learning models for creating marketing copy and blog posts.',
-      tech: ['React', 'Python', 'TensorFlow', 'FastAPI'],
-      gradient: 'from-green-500 to-teal-500',
-    },
-    {
-      title: 'Real Estate Platform',
-      description: 'Property listing website with advanced search filters, virtual tours, and integrated booking system.',
-      tech: ['Next.js', 'Supabase', 'Mapbox'],
-      gradient: 'from-blue-500 to-indigo-500',
-    },
-    {
-      title: 'Fitness Tracking App',
-      description: 'Mobile-first fitness application with workout tracking, nutrition planning, and progress analytics.',
-      tech: ['React Native', 'Node.js', 'PostgreSQL'],
-      gradient: 'from-yellow-500 to-orange-500',
-    },
-  ];
+  {
+    title: 'Air Canvas: Virtual Drawing in Video Conferencing',
+    description:
+      'A video meeting application with an integrated gesture-based Air Canvas, enabling users to draw virtually during live sessions using hand tracking.',
+    tech: ['Next.js', 'Clerk API', 'Stream API', 'Python', 'OpenCV', 'MediaPipe', 'Tailwind CSS'],
+    gradient: 'from-cyan-500 to-blue-500',
+  },
+  {
+    title: 'ArhansRTO: Car Parking Simulation Game',
+    description:
+      'An interactive car parking simulation game focusing on smooth controls, collision handling, and real-time game logic.',
+    tech: ['React', 'Vite', 'JavaScript', 'CSS'],
+    gradient: 'from-purple-500 to-pink-500',
+  },
+  {
+    title: 'SmartMailGuard: Spam Email Detection System',
+    description:
+      'A spam mail detection system that classifies emails as spam or legitimate using keyword-based text analysis.',
+    tech: ['Python', 'NumPy', 'Pandas', 'Text Processing'],
+    gradient: 'from-orange-500 to-red-500',
+  },
+  {
+    title: 'NumRush: Random Score Accumulation Game',
+    description:
+      'A logic-based game where players select numbers and random values are added per round to determine the final winner.',
+    tech: ['JavaScript', 'Random Logic', 'Game Algorithms'],
+    gradient: 'from-green-500 to-teal-500',
+  },
+  {
+    title: 'DevSnap: Minimal Developer Portfolio',
+    description:
+      'A lightweight and responsive mini portfolio designed to showcase skills and projects with fast performance.',
+    tech: ['React', 'Vite', 'JavaScript', 'CSS'],
+    gradient: 'from-blue-500 to-indigo-500',
+  },
+  {
+    title: 'ArhanWebsite: Personal Portfolio & Showcase(This one only)',
+    description:
+      'A modern personal portfolio highlighting projects, experience, and skills with a clean and scalable design.',
+    tech: ['Next.js', 'JavaScript', 'Tailwind CSS'],
+    gradient: 'from-yellow-500 to-orange-500',
+  },
+];
+
 
   const container = {
     hidden: { opacity: 0 },
