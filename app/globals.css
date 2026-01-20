@@ -805,6 +805,14 @@ html.light .hero-divider {
       0 0 22px rgba(250,204,21,0.25);
   }
 }
+
+/* ✅ MOBILE SAFETY FIX FOR NEXT IMAGE */
+@media (max-width: 640px) {
+  .about-image-fix {
+    min-height: 300px;
+  }
+}
+
 /* ================================
                     ABOUT SECTION */
 :root{
