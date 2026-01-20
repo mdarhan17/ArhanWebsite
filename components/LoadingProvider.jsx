@@ -9,7 +9,7 @@ export default function LoadingProvider({ children }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5200); // 🔥 Loader duration (5.2 sec)
+    }, 8200); // 🔥 Loader duration (5.2 sec)
 
     return () => clearTimeout(timer);
   }, []);
