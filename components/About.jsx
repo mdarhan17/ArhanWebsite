@@ -92,11 +92,11 @@ export default function About() {
   whileInView={{ opacity: 1, scale: 1 }}
   viewport={{ once: true }}
   transition={{ duration: 0.8, ease: 'easeOut' }}
-  className="relative flex justify-center items-center"
+  className="relative flex justify-center items-center z-20"
 >
-  {/* 🌈 OUTER SOFT GLOW (SEPARATE – NO BLUR ON IMAGE) */}
+  {/* 🌈 OUTER SOFT GLOW (NO BLUR ON IMAGE) */}
   <div
-    className="absolute -inset-10 rounded-full blur-[120px] opacity-30"
+    className="absolute -inset-10 rounded-full blur-[120px] opacity-30 z-0"
     style={{
       background:
         'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
@@ -107,6 +107,7 @@ export default function About() {
   <div
     className="
       relative
+      z-20
       w-[240px] h-[320px]
       sm:w-[280px] sm:h-[360px]
       md:w-[340px] md:h-[440px]
@@ -115,7 +116,7 @@ export default function About() {
     "
     style={{
       background: 'rgba(255,255,255,0.04)',
-      border: '2px solid rgba(255,255,255,0.35)',   // 👈 crisp glass stroke
+      border: '2px solid rgba(255,255,255,0.35)',
       boxShadow: `
         inset 0 0 1px rgba(255,255,255,0.6),
         0 0 30px var(--glow-color)
@@ -126,7 +127,7 @@ export default function About() {
     <motion.div
       whileHover={{ scale: 1.06 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="relative w-full h-full"
+      className="relative w-full h-full z-20"
     >
       <Image
         src="/arhan.jpg"
@@ -141,7 +142,7 @@ export default function About() {
 
     {/* ✨ INNER EDGE SHINE */}
     <div
-      className="pointer-events-none absolute inset-0 rounded-3xl"
+      className="pointer-events-none absolute inset-0 rounded-3xl z-30"
       style={{
         boxShadow: 'inset 0 0 0.8px rgba(255,255,255,0.55)',
       }}
