@@ -179,8 +179,9 @@ export default function Hero() {
             Modern Digital Solutions through Creativity and Growth
             </p>
 
-            <motion.a
-  href="/resume.pdf"
+           <motion.a
+  href="/ArhanResume.pdf"
+  download="Mohammed_Arhan_Resume.pdf"
   whileHover={{ scale: 1.06 }}
   whileTap={{ scale: 0.95 }}
   className="
@@ -190,9 +191,10 @@ export default function Hero() {
   "
 >
   <span className="glass-btn-text">
-     Download Resume
+    Download Resume
   </span>
 </motion.a>
+
 
           </motion.div>
      

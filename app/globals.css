@@ -879,6 +879,86 @@ body {
     background-attachment: fixed;
   }
 }
+/* ===============================
+   ABOUT IMAGE WRAPPER
+================================ */
+.about-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+/* ===============================
+   SOFT GLOW
+================================ */
+.about-image-glow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 999px;
+  filter: blur(120px);
+  opacity: 0.3;
+  background: linear-gradient(
+    135deg,
+    var(--hero-accent),
+    var(--hero-accent-soft)
+  );
+  z-index: 0;
+}
+
+/* ===============================
+   IMAGE FRAME
+================================ */
+.about-image-frame {
+  position: relative;
+  z-index: 10;
+  width: 220px;
+  height: 300px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,255,255,0.35);
+  box-shadow:
+    inset 0 0 1px rgba(255,255,255,0.6),
+    0 0 30px var(--glow-color);
+}
+
+/* ===============================
+   IMAGE
+================================ */
+.about-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ===============================
+   INNER SHINE
+================================ */
+.about-image-shine {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow: inset 0 0 1px rgba(255,255,255,0.6);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (min-width: 640px) {
+  .about-image-frame {
+    width: 260px;
+    height: 340px;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-image-frame {
+    width: 340px;
+    height: 440px;
+  }
+}
 
 
 

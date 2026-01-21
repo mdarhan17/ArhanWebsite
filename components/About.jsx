@@ -86,56 +86,25 @@ export default function About() {
 {/* ================= LEFT IMAGE ================= */}
 <motion.div
   initial={{ opacity: 0, scale: 0.96 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, ease: 'easeOut' }}
-  className="relative flex justify-center items-center z-20"
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+  className="about-image-wrapper"
 >
-  {/* OUTER GLOW */}
-  <div
-    className="absolute -inset-10 rounded-full blur-[120px] opacity-30"
-    style={{
-      background:
-        'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
-    }}
-  />
+  <div className="about-image-glow" />
 
-  {/* IMAGE FRAME */}
-  <div
-    className="
-      relative z-20
-      w-[220px] h-[300px]
-      sm:w-[260px] sm:h-[340px]
-      md:w-[340px] md:h-[440px]
-      rounded-3xl
-      overflow-hidden
-    "
-    style={{
-      background: 'rgba(255,255,255,0.04)',
-      border: '2px solid rgba(255,255,255,0.35)',
-      boxShadow: `
-        inset 0 0 1px rgba(255,255,255,0.6),
-        0 0 30px var(--glow-color)
-      `,
-    }}
-  >
+  <div className="about-image-frame">
     <Image
       src="/arhan.jpg"
       alt="Mohammed Arhan"
-      width={340}
-      height={440}
+      fill
       priority
-      className="w-full h-full object-cover object-center"
+      className="about-image"
     />
-
-    {/* INNER EDGE */}
-    <div
-      className="pointer-events-none absolute inset-0 rounded-3xl"
-      style={{
-        boxShadow: 'inset 0 0 0.8px rgba(255,255,255,0.55)',
-      }}
-    />
+    <div className="about-image-shine" />
   </div>
 </motion.div>
+
 
 
 
