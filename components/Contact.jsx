@@ -21,7 +21,7 @@ export default function Contact() {
     {
       icon: HiLocationMarker,
       title: 'Location',
-      value: 'Mangalore, India',
+      value: 'Mangalore, Karnataka, India',
       link: null,
     },
   ];

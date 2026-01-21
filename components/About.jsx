@@ -95,7 +95,7 @@ export default function About() {
 
   <div className="about-image-frame">
     <Image
-      src="/arhan.jpg"
+      src="/arhan.JPG"
       alt="Mohammed Arhan"
       fill
       priority
