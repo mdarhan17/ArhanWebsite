@@ -127,6 +127,7 @@ export default function About() {
       className="w-full h-full object-cover object-center"
     />
 
+    {/* INNER EDGE */}
     <div
       className="pointer-events-none absolute inset-0 rounded-3xl"
       style={{
