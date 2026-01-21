@@ -15,10 +15,7 @@ export default function About() {
   return (
   <section
   id="about"
-  className="
-    relative min-h-[90vh] py-24 overflow-hidden
-    bg-[var(--bg-primary)]
-  "
+  className="relative min-h-[90vh] py-24 overflow-hidden will-change-transform"
 >
 
 
@@ -89,21 +86,20 @@ export default function About() {
 {/* ================= LEFT IMAGE ================= */}
 <motion.div
   initial={{ opacity: 0, scale: 0.96 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  viewport={{ once: true }}
+  animate={{ opacity: 1, scale: 1 }}
   transition={{ duration: 0.8, ease: 'easeOut' }}
   className="relative flex justify-center items-center z-20"
 >
-  {/* 🌈 OUTER SOFT GLOW */}
+  {/* OUTER GLOW */}
   <div
-    className="absolute -inset-10 rounded-full blur-[120px] opacity-30 z-0"
+    className="absolute -inset-10 rounded-full blur-[120px] opacity-30"
     style={{
       background:
         'linear-gradient(135deg,var(--hero-accent),var(--hero-accent-soft))',
     }}
   />
 
-  {/* 🧊 IMAGE FRAME */}
+  {/* IMAGE FRAME */}
   <div
     className="
       relative z-20
@@ -122,32 +118,24 @@ export default function About() {
       `,
     }}
   >
-    {/* 🧑 IMAGE (PRODUCTION SAFE) */}
-    <motion.div
-      whileHover={{ scale: 1.06 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="w-full h-full"
-    >
-      <Image
-        src="/arhan.jpg"
-        alt="Mohammed Arhan"
-        width={340}
-        height={440}
-        priority
-        quality={95}
-        className="w-full h-full object-cover object-center"
-      />
-    </motion.div>
+    <Image
+      src="/arhan.jpg"
+      alt="Mohammed Arhan"
+      width={340}
+      height={440}
+      priority
+      className="w-full h-full object-cover object-center"
+    />
 
-    {/* ✨ INNER EDGE SHINE */}
     <div
-      className="pointer-events-none absolute inset-0 rounded-3xl z-30"
+      className="pointer-events-none absolute inset-0 rounded-3xl"
       style={{
         boxShadow: 'inset 0 0 0.8px rgba(255,255,255,0.55)',
       }}
     />
   </div>
 </motion.div>
+
 
 
 
