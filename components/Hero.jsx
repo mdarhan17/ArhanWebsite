@@ -315,5 +315,4 @@ function TypeText({ isLight }) {
     <Cursor cursorStyle="|" />
   </span>
 );
-
 }

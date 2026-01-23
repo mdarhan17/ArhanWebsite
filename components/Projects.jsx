@@ -4,34 +4,61 @@ import { motion } from 'framer-motion';
 import { HiExternalLink, HiCode } from 'react-icons/hi';
 
 export default function Projects() {
-  const projects = [
+const projects = [
   {
     title: 'Air Canvas: Virtual Drawing in Video Conferencing',
     description:
       'A video meeting application with an integrated gesture-based Air Canvas, enabling users to draw virtually during live sessions using hand tracking.',
     tech: ['Next.js', 'Clerk API', 'Stream API', 'Python', 'OpenCV', 'MediaPipe', 'Tailwind CSS'],
-    gradient: 'from-cyan-500 to-blue-500',
+    gradient: 'from-cyan-400 to-sky-600',
   },
   {
     title: 'ArhansRTO: Car Parking Simulation Game',
     description:
       'An interactive car parking simulation game focusing on smooth controls, collision handling, and real-time game logic.',
     tech: ['React', 'Vite', 'JavaScript', 'CSS'],
-    gradient: 'from-purple-500 to-pink-500',
+    gradient: 'from-fuchsia-500 to-rose-500',
   },
+
+  // 🔥 EDUMATE – NOW 3RD
+  {
+    title: 'Edumate: Online Course Management System',
+    description:
+      'A MERN-based learning platform where students enroll in courses, instructors manage content, and admins control users with secure authentication.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    gradient: 'from-violet-500 to-indigo-600',
+  },
+
   {
     title: 'SmartMailGuard: Spam Email Detection System',
     description:
       'A spam mail detection system that classifies emails as spam or legitimate using keyword-based text analysis.',
     tech: ['Python', 'NumPy', 'Pandas', 'Text Processing'],
-    gradient: 'from-orange-500 to-red-500',
+    gradient: 'from-amber-500 to-red-600',
   },
   {
     title: 'NumRush: Random Score Accumulation Game',
     description:
       'A logic-based game where players select numbers and random values are added per round to determine the final winner.',
     tech: ['JavaScript', 'Random Logic', 'Game Algorithms'],
-    gradient: 'from-green-500 to-teal-500',
+    gradient: 'from-emerald-400 to-teal-600',
+  },
+
+  // 🔥 CARCONNECT – COLOR CHANGED
+  {
+    title: 'CarConnect: Smart Car Service Booking Platform',
+    description:
+      'A MERN-based platform enabling users to book nearby car services, track bookings, and manage service status with role-based access.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    gradient: 'from-red-500 to-red-800',
+  },
+
+  {
+    title: 'Beyond Payana: Experience Karnataka Like a Local',
+    description:
+      'A community-driven tourism platform connecting foreign travellers with verified local guides for authentic cultural experiences.',
+    tech: ['Next.js', 'Node.js', 'MongoDB', 'Maps API', 'Recommendation System'],
+    gradient: 'from-lime-500 to-green-700',
   },
   {
     title: 'DevSnap: Minimal Developer Portfolio',
@@ -41,14 +68,13 @@ export default function Projects() {
     gradient: 'from-blue-500 to-indigo-500',
   },
   {
-    title: 'ArhanWebsite: Personal Portfolio & Showcase(This one only)',
+    title: 'ArhanWebsite: Personal Portfolio & Showcase (This One)',
     description:
       'A modern personal portfolio highlighting projects, experience, and skills with a clean and scalable design.',
     tech: ['Next.js', 'JavaScript', 'Tailwind CSS'],
-    gradient: 'from-yellow-500 to-orange-500',
+    gradient: 'from-yellow-400 to-orange-600',
   },
 ];
-
 
   const container = {
     hidden: { opacity: 0 },
