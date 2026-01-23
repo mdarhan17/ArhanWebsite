@@ -221,8 +221,8 @@ export default function About() {
     // ❌ X (TWITTER)
     {
       icon: <FaXTwitter className="w-6 h-6" />,
-      deepLink: 'twitter://user?screen_name=mdarhan',
-      fallbackUrl: 'https://x.com/mdarhan',
+      deepLink: 'twitter://user?screen_name=arhanyay',
+      fallbackUrl: 'https://x.com/arhanyay',
       color: 'from-slate-700 to-slate-900',
     },
   ].map((item, i) => (

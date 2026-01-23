@@ -40,8 +40,8 @@ export default function Contact() {
   },
   {
     icon: FaTwitter,
-    href: 'https://x.com/mdarhan',
-    deepLink: 'twitter://user?screen_name=mdarhan',
+    href: 'https://x.com/arhanyay',
+    deepLink: 'twitter://user?screen_name=arhanyay',
     label: 'X',
   },
   {
