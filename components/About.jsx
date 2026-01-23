@@ -195,9 +195,9 @@ export default function About() {
     // ▶️ YOUTUBE (FIXED – channel ID based)
     {
       icon: <FaYoutube className="w-6 h-6" />,
-      deepLink: 'vnd.youtube://channel/UCXpmkxJk6vIyS2amJniuynw',
+      deepLink: 'vnd.youtube://MdArhan',
       fallbackUrl:
-        'https://www.youtube.com/channel/UCXpmkxJk6vIyS2amJniuynw',
+        'https://www.youtube.com/MdArhan',
       color: 'from-red-600 to-red-500',
       isPrimary: true,
     },

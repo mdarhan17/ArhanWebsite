@@ -27,11 +27,31 @@ export default function Contact() {
   ];
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: FaYoutube, href: 'https://youtube.com', label: 'YouTube' },
-  ];
+  {
+    icon: FaGithub,
+    href: 'https://github.com/mdarhan17',
+    label: 'GitHub',
+  },
+  {
+    icon: FaLinkedin,
+    href: 'https://www.linkedin.com/in/mdarhan/',
+    deepLink: 'linkedin://in/mdarhan',
+    label: 'LinkedIn',
+  },
+  {
+    icon: FaTwitter,
+    href: 'https://x.com/mdarhan',
+    deepLink: 'twitter://user?screen_name=mdarhan',
+    label: 'X',
+  },
+  {
+    icon: FaYoutube,
+    href: 'https://www.youtube.com/MdArhan',
+    deepLink: 'vnd.youtube://channel/MdArhan',
+    label: 'YouTube',
+  },
+];
+
 
   return (
     <section id="contact" className="section-padding relative">
