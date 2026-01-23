@@ -173,45 +173,102 @@ export default function About() {
     , blending technical expertise with creativity.
   </p>
 
-  {/* ================= SOCIAL ICONS ================= */}
-<div className="
-  flex items-center gap-5 pt-6
-  flex-nowrap
-  overflow-x-auto
-  md:overflow-visible
-">
+ {/* ================= SOCIAL ICONS ================= */}
+<div
+  className="
+    flex items-center gap-5 pt-6
+    flex-nowrap
+    overflow-x-auto
+    md:overflow-visible
+  "
+>
   {[
-    { icon: FaEnvelope, color: '#ea4335', link: 'mailto:yourmail@gmail.com' }, // Gmail
-    { icon: FaYoutube, color: '#ff0000', link: 'https://youtube.com' },
-    { icon: FaLinkedin, color: '#0a66c2', link: 'https://linkedin.com' },
-    { icon: FaInstagram, color: '#e1306c', link: 'https://instagram.com' },
-    { icon: FaXTwitter, color: '#1da1f2', link: 'https://x.com' },
+    // 📧 GMAIL
+    {
+      icon: <FaEnvelope className="w-6 h-6" />,
+      deepLink: 'googlegmail://co?to=mdarhanofficial@gmail.com',
+      fallbackUrl:
+        'https://mail.google.com/mail/?view=cm&fs=1&to=mdarhanofficial@gmail.com',
+      color: 'from-red-500 to-orange-500',
+    },
+
+    // ▶️ YOUTUBE (FIXED – channel ID based)
+    {
+      icon: <FaYoutube className="w-6 h-6" />,
+      deepLink: 'vnd.youtube://channel/UCXpmkxJk6vIyS2amJniuynw',
+      fallbackUrl:
+        'https://www.youtube.com/channel/UCXpmkxJk6vIyS2amJniuynw',
+      color: 'from-red-600 to-red-500',
+      isPrimary: true,
+    },
+
+    // 💼 LINKEDIN
+    {
+      icon: <FaLinkedin className="w-6 h-6" />,
+      deepLink: 'linkedin://in/mdarhan',
+      fallbackUrl: 'https://www.linkedin.com/in/mdarhan/',
+      color: 'from-blue-600 to-blue-500',
+    },
+
+    // 📸 INSTAGRAM
+    {
+      icon: <FaInstagram className="w-6 h-6" />,
+      deepLink: 'instagram://user?username=arhanyay',
+      fallbackUrl: 'https://www.instagram.com/arhanyay/',
+      color: 'from-pink-500 to-purple-600',
+    },
+
+    // ❌ X (TWITTER)
+    {
+      icon: <FaXTwitter className="w-6 h-6" />,
+      deepLink: 'twitter://user?screen_name=mdarhan',
+      fallbackUrl: 'https://x.com/mdarhan',
+      color: 'from-slate-700 to-slate-900',
+    },
   ].map((item, i) => (
-    <motion.a
+    <motion.button
       key={i}
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
+      onClick={() => {
+        // 🖥 Desktop → always web
+        if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          window.open(item.fallbackUrl, '_blank', 'noopener,noreferrer');
+          return;
+        }
+
+        // 📱 Mobile → try app first
+        if (item.deepLink) {
+          const start = Date.now();
+          window.location.href = item.deepLink;
+
+          // fallback if app not installed
+          setTimeout(() => {
+            if (Date.now() - start < 1500) {
+              window.open(item.fallbackUrl, '_blank', 'noopener,noreferrer');
+            }
+          }, 1000);
+        } else {
+          window.open(item.fallbackUrl, '_blank', 'noopener,noreferrer');
+        }
+      }}
       whileHover={{ scale: 1.15, rotate: -5 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 220 }}
-      className="
-        w-11 h-11
-        min-w-[44px]
+      className={`
+        w-11 h-11 min-w-[44px]
         rounded-full
         flex items-center justify-center
-        glass
-        border border-white/20
+        bg-gradient-to-r ${item.color}
+        text-white
         shadow-md
-      "
+        border border-white/20
+      `}
     >
-      <item.icon
-        className="text-xl"
-        style={{ color: item.color }}
-      />
-    </motion.a>
+      {item.icon}
+    </motion.button>
   ))}
 </div>
+
+
 
             </div>
           </div>
