@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@600;700;800&display=swap');
+
 /* ===============================
    WRAPPER
 ================================ */
@@ -89,31 +91,41 @@
    TYPEWRITER TEXT
 ================================ */
 .text {
-  margin-top: 28px;
-  font-size: 18px;
-  font-weight: 600;
+  margin-top: 26px;
+  font-family: 'Satoshi', system-ui, sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
   text-align: center;
+  text-transform: capitalize;
 }
+
+
 
 .text span {
   opacity: 0;
   display: inline-block;
-  animation: type 0.35s forwards;
+  animation: type 0.45s forwards;
   background: linear-gradient(
     135deg,
+    #e0f2ff,
+    #7dd3fc,
     #38bdf8,
-    #818cf8,
-    #f472b6,
-    #22c55e
+    #0ea5e9
   );
-  background-size: 300%;
-  animation-name: type, flow;
-  animation-duration: 0.35s, 3s;
+  background-size: 200%;
+  animation-name: type, glowFlow;
+  animation-duration: 0.45s, 2.8s;
   animation-iteration-count: 1, infinite;
   animation-fill-mode: forwards;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 12px rgba(56,189,248,0.55),
+    0 0 24px rgba(14,165,233,0.35);
 }
+
+
 
 @keyframes type {
   to { opacity: 1; }
@@ -123,6 +135,11 @@
   0% { background-position: 0%; }
   100% { background-position: 300%; }
 }
+@keyframes glowFlow {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
 
 /* ===============================
    MOBILE
@@ -136,9 +153,11 @@
   .percent {
     font-size: 18px;
   }
-
-  .text {
-    font-size: 16px;
-    padding: 0 18px;
+  
+ .text {
+    font-size: 18px;
+    padding: 0 20px;
+    letter-spacing: 0.6px;
   }
 }
+
