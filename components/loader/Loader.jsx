@@ -19,55 +19,44 @@ export default function Loader() {
         clearInterval(timer);
         setTimeout(() => setDone(true), 600);
       }
-    }, 45); // ~4.5s smooth cinematic
+    }, 45);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div className={styles.wrapper}>
-      {/* 🔵 BACKGROUND */}
       <div className={styles.bg} />
 
-      {/* 🧍 IMAGE CONTAINER */}
       <div className={styles.imageWrap}>
-        
-        {/* 🖤 BLACK SHADOW (ALWAYS FULL BODY) */}
+        {/* BLACK SILHOUETTE */}
         <Image
           src="/loader.png"
-          alt="Loader Shadow"
+          alt="Shadow"
           fill
           priority
           className={styles.shadowImg}
         />
 
-        {/* ✨ REAL IMAGE – PURE BOTTOM → TOP REVEAL */}
+        {/* COLOR IMAGE (REVEAL ONLY INSIDE SILHOUETTE) */}
         <Image
           src="/loader.png"
-          alt="Loader Reveal"
+          alt="Reveal"
           fill
           priority
           className={styles.realImg}
-          style={{
-            '--fill': `${progress}%`,
-          }}
+          style={{ '--fill': `${progress}%` }}
         />
-
       </div>
 
-      {/* 🔢 PERCENT */}
       <div className={styles.percent}>{progress}%</div>
 
-      {/* ✍️ TYPEWRITER TEXT */}
       {done && (
         <p className={styles.text}>
           {'Hello Guys, Welcome To My Portfolio Website'
             .split('')
             .map((char, i) => (
-              <span
-                key={i}
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
+              <span key={i} style={{ animationDelay: `${i * 0.05}s` }}>
                 {char === ' ' ? '\u00A0' : char}
               </span>
             ))}

@@ -14,7 +14,7 @@
 }
 
 /* ===============================
-   ELECTRIC BLUE BACKGROUND
+   BACKGROUND
 ================================ */
 .bg {
   position: absolute;
@@ -27,42 +27,54 @@
 }
 
 /* ===============================
-   IMAGE CONTAINER (FIXED)
+   IMAGE HOLDER (NO BOX)
 ================================ */
 .imageWrap {
   position: relative;
   width: 230px;
-  height: 380px;
-  z-index: 2;
+  height: 400px; /* 👈 head safe */
 }
 
 /* ===============================
-   BLACK SHADOW PNG
+   BLACK SILHOUETTE (FIXED)
 ================================ */
 .shadowImg {
   object-fit: contain;
-  filter: brightness(0) drop-shadow(0 0 40px rgba(0, 0, 0, 1));
-  opacity: 0.95;
+  object-position: center bottom;
+  filter: brightness(0);
 }
 
 /* ===============================
-   REAL IMAGE – PURE REVEAL
+   COLOR IMAGE – TRUE SHAPE REVEAL
 ================================ */
 .realImg {
   object-fit: contain;
+  object-position: center bottom;
 
-  /* 🔥 PURE IMAGE CLIP (NO RECTANGLE POSSIBLE) */
+  /* 🔥 SILHOUETTE MASK */
+  -webkit-mask-image: url('/loader.png');
+  mask-image: url('/loader.png');
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: 100% auto;
+  mask-size: 100% auto;
+
+  -webkit-mask-position: center bottom;
+  mask-position: center bottom;
+
+  /* 🔥 BOTTOM → TOP REVEAL (NO RECTANGLE) */
   clip-path: inset(calc(100% - var(--fill)) 0 0 0);
-  transition: clip-path 0.04s linear;
 
-  /* hologram glow */
+  /* GLOW */
   filter:
-    drop-shadow(0 0 18px rgba(0, 120, 255, 0.7))
-    drop-shadow(0 0 42px rgba(0, 80, 255, 0.55));
+    drop-shadow(0 0 18px rgba(0,120,255,0.8))
+    drop-shadow(0 0 42px rgba(0,80,255,0.55));
 }
 
 /* ===============================
-   PERCENT TEXT
+   PERCENT
 ================================ */
 .percent {
   margin-top: 22px;
@@ -70,7 +82,7 @@
   font-weight: 600;
   color: #9bbcff;
   letter-spacing: 2px;
-  text-shadow: 0 0 12px rgba(0, 120, 255, 0.8);
+  text-shadow: 0 0 12px rgba(0,120,255,0.8);
 }
 
 /* ===============================
@@ -104,18 +116,12 @@
 }
 
 @keyframes type {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
 }
 
 @keyframes flow {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 300%;
-  }
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
 }
 
 /* ===============================
@@ -124,7 +130,7 @@
 @media (max-width: 768px) {
   .imageWrap {
     width: 180px;
-    height: 300px;
+    height: 320px;
   }
 
   .percent {
