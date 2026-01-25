@@ -2,27 +2,32 @@ import './globals.css';
 import LoadingProvider from '@/components/LoadingProvider';
 
 export const metadata = {
-  title: 'Mohammed Arhan - Full Stack Developer & Content Creator',
+  title: 'Mohammed Arhan | Full Stack & AI/ML Engineer',
   description:
-    'Portfolio of Mohammed Arhan - Full Stack Developer and Content Creator specializing in modern web development',
+    'Mohammed Arhan – Full Stack & AI/ML Engineer. Portfolio showcasing modern web apps, machine learning projects, and creative work.',
+
   openGraph: {
-    title: 'Mohammed Arhan - Full Stack Developer & Content Creator',
-    description: 'Portfolio showcasing web development projects and content creation',
+    title: 'Mohammed Arhan | Full Stack & AI/ML Engineer',
+    description:
+      'Explore my portfolio featuring full stack development, AI/ML projects, and creative digital work.',
+    type: 'website',
+    url: 'https://mohammedarhan.vercel.app', // 🔁 apna domain
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: '/og-image.png', // ✅ YOUR HERO / PORTFOLIO IMAGE
+        width: 1200,
+        height: 630,
+        alt: 'Mohammed Arhan Portfolio',
       },
     ],
   },
+
   twitter: {
     card: 'summary_large_image',
-    title: 'Mohammed Arhan - Full Stack Developer & Content Creator',
-    description: 'Portfolio showcasing web development projects and content creation',
-    images: [
-      {
-        url: 'https://bolt.new/static/og_default.png',
-      },
-    ],
+    title: 'Mohammed Arhan | Full Stack & AI/ML Engineer',
+    description:
+      'Portfolio of Mohammed Arhan – Full Stack, AI/ML Engineer & Content Creator.',
+    images: ['/og-image.png'], // ✅ SAME IMAGE
   },
 };
 
@@ -30,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* 🔥 LOADER WRAPPER */}
+        {/* 🔥 GLOBAL LOADER */}
         <LoadingProvider>
           {children}
         </LoadingProvider>
