@@ -5,6 +5,7 @@ import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 export default function Contact() {
+
   const contactInfo = [
     {
       icon: HiMail,
@@ -16,7 +17,7 @@ export default function Contact() {
       icon: HiPhone,
       title: 'Phone',
       value: '+91 9731115171',
-      link: 'tel:9731115171',
+      link: 'tel:+919731115171',
     },
     {
       icon: HiLocationMarker,
@@ -27,35 +28,17 @@ export default function Contact() {
   ];
 
   const socialLinks = [
-  {
-    icon: FaGithub,
-    href: 'https://github.com/mdarhan17',
-    label: 'GitHub',
-  },
-  {
-    icon: FaLinkedin,
-    href: 'https://www.linkedin.com/in/mdarhan/',
-    deepLink: 'linkedin://in/mdarhan',
-    label: 'LinkedIn',
-  },
-  {
-    icon: FaTwitter,
-    href: 'https://x.com/arhanyay',
-    deepLink: 'twitter://user?screen_name=arhanyay',
-    label: 'X',
-  },
-  {
-    icon: FaYoutube,
-    href: 'https://www.youtube.com/MdArhan',
-    deepLink: 'vnd.youtube://channel/MdArhan',
-    label: 'YouTube',
-  },
-];
-
+    { icon: FaGithub, href: 'https://github.com/mdarhan17', label: 'GitHub' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/mdarhan/', label: 'LinkedIn' },
+    { icon: FaTwitter, href: 'https://x.com/arhanyay', label: 'X' },
+    { icon: FaYoutube, href: 'https://www.youtube.com/MdArhan', label: 'YouTube' },
+  ];
 
   return (
     <section id="contact" className="section-padding relative">
       <div className="max-w-7xl mx-auto">
+
+        {/* ===== HEADER ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,72 +49,60 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             Get In Touch
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-lg opacity-80 max-w-2xl mx-auto">
             Have a project in mind or just want to chat? Feel free to reach out!
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
+
+          {/* ===== LEFT INFO ===== */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
           >
             <div className="glass rounded-2xl p-8 space-y-6">
               <h3 className="text-2xl font-bold gradient-text mb-6">
                 Contact Information
               </h3>
 
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ x: 10 }}
-                  className="flex items-start space-x-4"
-                >
+              {contactInfo.map((info, i) => (
+                <div key={i} className="flex items-start gap-4">
                   <div
-                    className="p-3 rounded-xl glass"
+                    className="p-3 rounded-xl"
                     style={{ background: 'var(--gradient-accent)' }}
                   >
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
-                      {info.title}
-                    </h4>
+                    <h4 className="font-semibold">{info.title}</h4>
                     {info.link ? (
-                      <a
-                        href={info.link}
-                        className="hover:underline"
-                        style={{ color: 'var(--text-secondary)' }}
-                      >
+                      <a href={info.link} className="opacity-80 hover:underline">
                         {info.value}
                       </a>
                     ) : (
-                      <p style={{ color: 'var(--text-secondary)' }}>{info.value}</p>
+                      <p className="opacity-80">{info.value}</p>
                     )}
                   </div>
-                </motion.div>
+                </div>
               ))}
 
-              <div className="pt-6 border-t" style={{ borderColor: 'var(--card-border)' }}>
-                <h4 className="font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
-                  Follow Me
-                </h4>
-                <div className="flex space-x-4">
-                  {socialLinks.map((social, index) => (
+              <div className="pt-6 border-t border-white/10">
+                <h4 className="font-semibold mb-4">Follow Me</h4>
+                <div className="flex gap-4">
+                  {socialLinks.map((social, i) => (
                     <motion.a
-                      key={index}
+                      key={i}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      whileHover={{ scale: 1.15, rotate: 4 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-3 rounded-xl glass glow-hover"
-                      aria-label={social.label}
+                      className="p-3 rounded-xl glass"
                     >
-                      <social.icon className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
+                      <social.icon className="w-6 h-6" />
                     </motion.a>
                   ))}
                 </div>
@@ -139,106 +110,41 @@ export default function Contact() {
             </div>
           </motion.div>
 
+          {/* ===== RIGHT SIDE (GOOGLE FORM EMBED) ===== */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-bold gradient-text mb-6">
-                Send a Message
-              </h3>
-
-              <form className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                    style={{ color: 'var(--text-primary)' }}
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 transition-all"
-                    style={{
-                      color: 'var(--text-primary)',
-                      background: 'var(--card-bg)',
-                    }}
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                    style={{ color: 'var(--text-primary)' }}
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 transition-all"
-                    style={{
-                      color: 'var(--text-primary)',
-                      background: 'var(--card-bg)',
-                    }}
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium mb-2"
-                    style={{ color: 'var(--text-primary)' }}
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows="5"
-                    className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 transition-all resize-none"
-                    style={{
-                      color: 'var(--text-primary)',
-                      background: 'var(--card-bg)',
-                    }}
-                    placeholder="Tell me about your project..."
-                  ></textarea>
-                </div>
-
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="w-full py-4 rounded-xl font-semibold glow-hover"
-                  style={{
-                    background: 'var(--gradient-accent)',
-                    color: 'white',
-                  }}
-                >
-                  Send Message
-                </motion.button>
-              </form>
+            <div className="glass rounded-2xl p-6">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdOoXW_J2KwrB-roS1ywW6DXsCdWAR8Z_xVpPjIHoFWptyzQQ/viewform?embedded=true"
+                width="100%"
+                height="520"
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                className="rounded-xl"
+              >
+                Loading…
+              </iframe>
             </div>
           </motion.div>
+
         </div>
 
+        {/* ===== FOOTER ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center glass rounded-2xl p-8"
+          className="mt-16 text-center glass rounded-2xl p-6"
         >
-          <p style={{ color: 'var(--text-secondary)' }}>
-            © {new Date().getFullYear()} Mohammed Arhan. All rights reserved.
-          </p>
+          © {new Date().getFullYear()} Mohammed Arhan. All rights reserved.
         </motion.div>
+
       </div>
     </section>
   );
