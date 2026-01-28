@@ -87,54 +87,60 @@
 }
 
 /* ===============================
-   TYPEWRITER TEXT
+   TYPEWRITER TEXT (FINAL)
 ================================ */
 .text {
   margin-top: 28px;
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.6px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
 
-  /* ✅ ONE LINE ALWAYS */
+  /* 🔥 PERFECT CENTER FIX */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 90vw;
+  text-align: center;
+
+  /* ✅ SINGLE LINE ALWAYS */
   white-space: nowrap;
   overflow: hidden;
-}
 
+  /* 🔧 ANDROID BLUR FIX */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .text span {
   opacity: 0;
   display: inline-block;
-  animation: type 0.4s forwards;
+  animation: type 0.35s forwards;
 
-  /* 🤍 CLEAN PREMIUM WHITE GRADIENT */
+  /* 🤍 PREMIUM SOFT WHITE (NO COLOR CAST) */
   background: linear-gradient(
     135deg,
     #ffffff,
-    #f1f5f9,
+    #f8fafc,
     #e5e7eb,
     #ffffff
   );
 
-  background-size: 250%;
+  background-size: 220%;
   animation-name: type, flow;
-  animation-duration: 0.4s, 4s;
+  animation-duration: 0.35s, 3.8s;
   animation-iteration-count: 1, infinite;
   animation-fill-mode: forwards;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* ✨ VERY SUBTLE GLOW (NOT FLASHY) */
+  /* ✨ VERY SUBTLE GLOW (ANDROID SAFE) */
   text-shadow:
-    0 0 4px rgba(255,255,255,0.35),
-    0 0 8px rgba(148,163,184,0.18);
-
-  font-weight: 700;
+    0 0 3px rgba(255,255,255,0.25),
+    0 0 6px rgba(148,163,184,0.15);
 }
-
-
 
 @keyframes type {
   to { opacity: 1; }
@@ -142,26 +148,16 @@
 
 @keyframes flow {
   0%   { background-position: 0%; }
-  100% { background-position: 300%; }
+  100% { background-position: 220%; }
 }
 
-
 /* ===============================
-   MOBILE
+   MOBILE OPTIMIZATION
 ================================ */
 @media (max-width: 768px) {
-  .imageWrap {
-    width: 180px;
-    height: 320px;
-  }
-
-  .percent {
-    font-size: 18px;
-  }
-
   .text {
     font-size: 16px;
-    padding: 0 12px;
-    white-space: nowrap;   /* 🔥 FORCE SINGLE LINE */
+    max-width: 92vw;
+    white-space: nowrap;
   }
 }
