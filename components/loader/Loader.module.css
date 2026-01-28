@@ -90,27 +90,29 @@
    TYPEWRITER TEXT (FINAL)
 ================================ */
 .text {
-  margin-top: 28px;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  margin-top: 24px;
+
+  font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.35px;
 
-  /* 🔥 PERFECT CENTER FIX */
-  display: inline-flex;
+  /* 🔥 PERFECT CENTER FIX (ALL BROWSERS) */
+  display: flex;
   justify-content: center;
   align-items: center;
 
-  max-width: 90vw;
+  max-width: 92vw;
   text-align: center;
 
-  /* ✅ SINGLE LINE ALWAYS */
+  /* ✅ FORCE SINGLE LINE */
   white-space: nowrap;
   overflow: hidden;
 
-  /* 🔧 ANDROID BLUR FIX */
+  /* 🔧 ANDROID / IOS BLUR FIX */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .text span {
@@ -118,37 +120,40 @@
   display: inline-block;
   animation: type 0.35s forwards;
 
-  /* 🤍 PREMIUM SOFT WHITE (NO COLOR CAST) */
+  /* 🤍 PREMIUM NEUTRAL WHITE GRADIENT */
   background: linear-gradient(
     135deg,
     #ffffff,
-    #f8fafc,
+    #f1f5f9,
     #e5e7eb,
     #ffffff
   );
 
-  background-size: 220%;
+  background-size: 200%;
   animation-name: type, flow;
-  animation-duration: 0.35s, 3.8s;
+  animation-duration: 0.35s, 3.5s;
   animation-iteration-count: 1, infinite;
   animation-fill-mode: forwards;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* ✨ VERY SUBTLE GLOW (ANDROID SAFE) */
+  /* ✨ VERY SOFT GLOW (NO HALO / NO BLUR) */
   text-shadow:
-    0 0 3px rgba(255,255,255,0.25),
-    0 0 6px rgba(148,163,184,0.15);
+    0 0 2px rgba(255,255,255,0.25),
+    0 0 4px rgba(148,163,184,0.12);
 }
 
+/* ===============================
+   ANIMATIONS
+================================ */
 @keyframes type {
   to { opacity: 1; }
 }
 
 @keyframes flow {
   0%   { background-position: 0%; }
-  100% { background-position: 220%; }
+  100% { background-position: 200%; }
 }
 
 /* ===============================
@@ -156,8 +161,8 @@
 ================================ */
 @media (max-width: 768px) {
   .text {
-    font-size: 16px;
-    max-width: 92vw;
-    white-space: nowrap;
+    font-size: 15.5px;
+    max-width: 94vw;
+    white-space: nowrap; /* 🔒 NEVER BREAK LINE */
   }
 }
