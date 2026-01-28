@@ -11,13 +11,14 @@ export const metadata = {
     description:
       'Explore my portfolio featuring full stack development, AI/ML projects, and creative digital work.',
     type: 'website',
-    url: 'https://mohammedarhan.vercel.app', // 🔁 apna domain
+    url: 'https://mohammedarhan.vercel.app',
+
     images: [
       {
-        url: 'public/hero.png', // ✅ YOUR HERO / PORTFOLIO IMAGE
+        url: 'https://mohammedarhan.vercel.app/hero.png', // ✅ FIXED
         width: 1200,
         height: 630,
-        alt: 'Mohammed Arhan Portfolio',
+        alt: 'Mohammed Arhan Portfolio Hero',
       },
     ],
   },
@@ -26,8 +27,8 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Mohammed Arhan | Full Stack & AI/ML Engineer',
     description:
-      'Portfolio of Mohammed Arhan – Full Stack, AI/ML Engineer & Content Creator.',
-    images: ['public/hero.png'], // ✅ SAME IMAGE
+      'Portfolio of Mohammed Arhan – Full Stack & AI/ML Engineer.',
+    images: ['https://mohammedarhan.vercel.app/hero.png'], // ✅ FIXED
   },
 };
 
@@ -35,10 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* 🔥 GLOBAL LOADER */}
-        <LoadingProvider>
-          {children}
-        </LoadingProvider>
+        <LoadingProvider>{children}</LoadingProvider>
       </body>
     </html>
   );
