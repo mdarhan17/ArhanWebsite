@@ -14,7 +14,7 @@ export const metadata = {
     url: 'https://mohammedarhan.vercel.app', // 🔁 apna domain
     images: [
       {
-        url: 'hero.png', // ✅ YOUR HERO / PORTFOLIO IMAGE
+        url: 'public/hero.png', // ✅ YOUR HERO / PORTFOLIO IMAGE
         width: 1200,
         height: 630,
         alt: 'Mohammed Arhan Portfolio',
@@ -27,7 +27,7 @@ export const metadata = {
     title: 'Mohammed Arhan | Full Stack & AI/ML Engineer',
     description:
       'Portfolio of Mohammed Arhan – Full Stack, AI/ML Engineer & Content Creator.',
-    images: ['/og-image.png'], // ✅ SAME IMAGE
+    images: ['public/hero.png'], // ✅ SAME IMAGE
   },
 };
 
