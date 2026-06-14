@@ -28,13 +28,17 @@ export default function Navbar() {
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
 
-    document.documentElement.classList.toggle('light', newTheme === 'light');
+    document.documentElement.classList.toggle(
+      'light',
+      newTheme === 'light'
+    );
   };
 
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Services', href: '#services' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -96,7 +100,7 @@ export default function Navbar() {
                 </span>
               </motion.button>
 
-              {/* MOBILE MENU */}
+              {/* MOBILE MENU BUTTON */}
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsOpen(!isOpen)}
