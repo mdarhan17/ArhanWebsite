@@ -18,6 +18,7 @@ export default function Navbar() {
     }
 
     const handleScroll = () => setScrolled(window.scrollY > 20);
+
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -25,6 +26,7 @@ export default function Navbar() {
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
+
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
 
@@ -35,13 +37,14 @@ export default function Navbar() {
   };
 
   const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Services', href: '#services' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Contact', href: '#contact' },
-];
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Services', href: '#services' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Content', href: '#content' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
     <motion.nav
@@ -53,14 +56,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
+
         <div className="glass-nav rounded-[30px] px-7 py-4">
 
-          {/* BLUR & DARK LAYER */}
           <div className="nav-dark-layer" />
 
           <div className="relative z-10 flex items-center justify-between">
 
-            {/* LOGO */}
+            {/* Logo */}
+
             <motion.div
               whileHover={{ scale: 1.06 }}
               className="text-2xl font-extrabold tracking-wide gradient-text cursor-pointer"
@@ -68,25 +72,30 @@ export default function Navbar() {
               MA
             </motion.div>
 
-            {/* DESKTOP MENU */}
+            {/* Desktop */}
+
             <div className="hidden md:flex items-center gap-10">
+
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   className={`nav-link ${
-                    item.name === 'Home' ? 'nav-link-active' : ''
+                    item.name === 'Home'
+                      ? 'nav-link-active'
+                      : ''
                   }`}
                 >
                   {item.name}
                 </a>
               ))}
+
             </div>
 
-            {/* ACTIONS */}
+            {/* Right */}
+
             <div className="flex items-center gap-4">
 
-              {/* THEME TOGGLE */}
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
@@ -94,32 +103,46 @@ export default function Navbar() {
               >
                 <span
                   className={`theme-thumb ${
-                    theme === 'light' ? 'translate-x-6' : ''
+                    theme === 'light'
+                      ? 'translate-x-6'
+                      : ''
                   }`}
                 >
-                  {theme === 'dark' ? <HiMoon /> : <HiSun />}
+                  {theme === 'dark'
+                    ? <HiMoon />
+                    : <HiSun />}
                 </span>
               </motion.button>
 
-              {/* MOBILE MENU BUTTON */}
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsOpen(!isOpen)}
                 className="md:hidden p-2 rounded-lg glass"
               >
-                {isOpen ? <HiX size={22} /> : <HiMenu size={22} />}
+                {isOpen
+                  ? <HiX size={22} />
+                  : <HiMenu size={22} />}
               </motion.button>
+
             </div>
+
           </div>
 
-          {/* MOBILE MENU */}
+          {/* Mobile */}
+
           {isOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
+              animate={{
+                height: 'auto',
+                opacity: 1,
+              }}
+              transition={{ duration: 0.3 }}
               className="md:hidden mt-5 pt-5 border-t border-white/10"
             >
+
               <div className="flex flex-col gap-4">
+
                 {navItems.map((item) => (
                   <a
                     key={item.name}
@@ -130,11 +153,14 @@ export default function Navbar() {
                     {item.name}
                   </a>
                 ))}
+
               </div>
+
             </motion.div>
           )}
 
         </div>
+
       </div>
     </motion.nav>
   );

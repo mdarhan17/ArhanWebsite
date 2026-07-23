@@ -6,32 +6,100 @@ export default function HeroBackground({ isLight }) {
 
       {/* BASE BACKGROUND */}
       <div
-        className={`absolute inset-0 transition-colors duration-500
-          ${isLight ? 'bg-white' : 'bg-black'}
-        `}
+        className={`absolute inset-0 transition-colors duration-500 ${
+          isLight ? 'bg-white' : 'bg-black'
+        }`}
       />
 
-      {/* MAIN FLOATING GLOW */}
-      <motion.div
-        animate={{ y: [0, -40, 0], x: [0, 30, 0] }}
-        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/4 left-1/4 w-[480px] h-[480px] rounded-full blur-[160px]"
+      {/* CENTER RADIAL GRADIENT */}
+      <div
+        className="absolute inset-0"
         style={{
           background: isLight
-            ? 'rgba(249,115,22,0.35)'   // orange
-            : 'rgba(59,130,246,0.35)', // blue
+            ? 'radial-gradient(circle at center, rgba(249,115,22,0.08), transparent 70%)'
+            : 'radial-gradient(circle at center, rgba(59,130,246,0.08), transparent 70%)',
         }}
       />
 
-      {/* SECOND GLOW */}
+      {/* FLOATING GLOW 1 */}
       <motion.div
-        animate={{ y: [0, 40, 0], x: [0, -30, 0] }}
-        transition={{ duration: 26, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-1/4 right-1/4 w-[520px] h-[520px] rounded-full blur-[180px]"
+        animate={{
+          y: [0, -40, 0],
+          x: [0, 30, 0],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[180px]"
         style={{
           background: isLight
-            ? 'rgba(250,204,21,0.30)'   // yellow
-            : 'rgba(34,211,238,0.25)', // cyan
+            ? 'rgba(249,115,22,0.35)'
+            : 'rgba(59,130,246,0.35)',
+        }}
+      />
+
+      {/* FLOATING GLOW 2 */}
+      <motion.div
+        animate={{
+          y: [0, 40, 0],
+          x: [0, -30, 0],
+        }}
+        transition={{
+          duration: 26,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] rounded-full blur-[200px]"
+        style={{
+          background: isLight
+            ? 'rgba(250,204,21,0.25)'
+            : 'rgba(34,211,238,0.22)',
+        }}
+      />
+
+      {/* FLOATING GLOW 3 */}
+      <motion.div
+        animate={{
+          y: [0, -25, 0],
+          x: [0, 20, 0],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="absolute top-[60%] left-[20%] w-[300px] h-[300px] rounded-full blur-[140px]"
+        style={{
+          background: isLight
+            ? 'rgba(251,146,60,0.18)'
+            : 'rgba(147,197,253,0.18)',
+        }}
+      />
+
+      {/* GRID OVERLAY */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, ${
+              isLight ? '#000' : '#fff'
+            } 1px, transparent 1px),
+            linear-gradient(to bottom, ${
+              isLight ? '#000' : '#fff'
+            } 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      {/* NOISE TEXTURE */}
+      <div
+        className="absolute inset-0 opacity-[0.025] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            'url("https://www.transparenttextures.com/patterns/noise.png")',
         }}
       />
     </div>
