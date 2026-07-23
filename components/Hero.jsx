@@ -180,7 +180,7 @@ export default function Hero() {
             </p>
 
            <motion.a
-  href="/ArhanResume.pdf"
+  href="/MohammedArhanCV.pdf"
   download="Mohammed_Arhan_Resume.pdf"
   whileHover={{ scale: 1.06 }}
   whileTap={{ scale: 0.95 }}
